@@ -9,6 +9,11 @@
       "source": "/homebeforedark",
       "destination": "/homebeforedark/",
       "permanent": false
+    },
+    {
+      "source": "/saltwhisker",
+      "destination": "/saltwhisker/",
+      "permanent": false
     }
   ],
   "rewrites": [
@@ -27,6 +32,14 @@
     {
       "source": "/homebeforedark/:path*",
       "destination": "https://homebeforedark.vercel.app/:path*"
+    },
+    {
+      "source": "/saltwhisker/",
+      "destination": "https://saltwhisker.vercel.app/"
+    },
+    {
+      "source": "/saltwhisker/:path*",
+      "destination": "https://saltwhisker.vercel.app/:path*"
     }
   ]
 }

@@ -24,6 +24,7 @@ Little browser games for late nights. This repository is the home page that ties
 |---|---|---|---|
 | `/13-beads` | `shaunagits/13-beads` | `13-beads` | `https://13-beads.vercel.app` |
 | `/homebeforedark` | `shaunagits/homebeforedark` | `homebeforedark` | `https://homebeforedark.vercel.app` |
+| `/saltwhisker` | `shaunagits/saltwhisker` | `saltwhisker` | `https://saltwhisker.vercel.app` |
 
 ## Add a game
 
