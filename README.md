@@ -10,6 +10,7 @@ Little browser games for late nights. This repository is the home page that ties
 |---|---|
 | [13 Beads](https://games.shauna.digital/13-beads/) | String a friendship bracelet in 3D, spell a phrase, and hang it on your wall. ([repo](https://github.com/shaunagits/13-beads)) |
 | [Home Before Dark](https://games.shauna.digital/homebeforedark/) | Pedal fast. Don't look back. |
+| [Saltwhisker](https://games.shauna.digital/saltwhisker/) | A tuxedo cat in a yellow sou'wester fishes off a pier for his dinner. ([repo](https://github.com/shaunagits/saltwhisker)) |
 
 ## How it is set up
 
