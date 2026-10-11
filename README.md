@@ -34,14 +34,15 @@ Little browser games for late nights. This repository is the home page that ties
    - a redirect from `/<path>` to `/<path>/`, so relative asset paths resolve correctly;
    - a rewrite for `/<path>/` itself (the wildcard rule does not match the bare folder path);
    - a rewrite for `/<path>/:path*`.
-3. Add a card for it to the list in `index.html`, linking to `/<path>/`.
+3. Add a card for it at the top of the list in `index.html`, linking to `/<path>/`, and move the "New" sticker to it.
 4. Add a row to the table above.
 5. Push to `main`, then check the home page, `/<path>`, and that the game's script files load.
 
 ## Things to know
 
 - A game saves player data per web address. Data saved at a game's own `vercel.app` address does not appear at `games.shauna.digital/<path>`.
-- Home page design (2026-10-08): title "Midnights" in Syne, a flickering pink neon tagline "Little games for late nights." (Neonderthaw), game cards styled as polaroids with handwritten captions (Caveat), on a marbled teal background drawn in code. Colors and fonts are defined at the top of the `<style>` block in `index.html`.
+- Home page design (updated 2026-10-11): title "Midnights" in Syne, a flickering pink neon tagline "Little games for late nights." (Neonderthaw), straight polaroid game cards with handwritten teasers (Edu SA Hand) and a "Play" cue, newest game first with a "New" sticker, a "Still developing." card for the next game, on a marbled teal background drawn in code. Colors and fonts are defined at the top of the `<style>` block in `index.html`.
+- Link previews: `og.png` (1200 by 630) plus Open Graph and Twitter card tags in the page head. Regenerate the image when the cards change.
 - All artwork is original. No artist names, logos, album artwork, or lyrics.
 
 ---

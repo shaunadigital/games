@@ -5,10 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Midnights</title>
   <meta name="description" content="Little games for late nights. Made by Shauna.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://games.shauna.digital/">
+  <meta property="og:title" content="Midnights: little games for late nights">
+  <meta property="og:description" content="Little games for late nights. Made by Shauna.">
+  <meta property="og:image" content="https://games.shauna.digital/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Midnights: three little games shown as polaroids on a marbled teal background.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Midnights: little games for late nights">
+  <meta name="twitter:description" content="Little games for late nights. Made by Shauna.">
+  <meta name="twitter:image" content="https://games.shauna.digital/og.png">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2312968f'/%3E%3Cg transform='rotate%28-6 16 16%29'%3E%3Crect x='8' y='6' width='16' height='20' rx='1.5' fill='%23fbfaf6'/%3E%3Crect x='10' y='8' width='12' height='12' fill='%2306433f'/%3E%3C/g%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Figtree:wght@400;500;600&family=Syne:wght@800&family=Caveat:wght@600;700&family=Press+Start+2P&family=Shantell+Sans:wght@800&family=Neonderthaw&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Figtree:wght@400;500;600&family=Syne:wght@800&family=Edu+SA+Hand:wght@600&family=Press+Start+2P&family=Shantell+Sans:wght@800&family=Neonderthaw&display=swap">
   <style>
     :root {
       /* Marbled teal: a sea green base with glowing patches, plus smoky dark veins drawn by an SVG noise filter. One look in light and dark mode. */
@@ -16,7 +28,7 @@
       --ink: #eef7f2; --muted: #b9dcd5; --accent: #ffe7a8;
       --display: 'Fredoka', 'Arial Rounded MT Bold', 'Trebuchet MS', sans-serif;
       --title: 'Syne', 'Arial Black', system-ui, sans-serif;
-      --hand: 'Caveat', 'Bradley Hand', 'Segoe Print', cursive;
+      --hand: 'Edu SA Hand', 'Bradley Hand', 'Segoe Print', cursive;
       --body: 'Figtree', 'Segoe UI', system-ui, sans-serif;
       --photo-paper: #fbfaf6; --photo-ink: #2a2433; --photo-muted: #6b6474;
       --marble: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1600' preserveAspectRatio='xMidYMid slice'%3E%3Cfilter id='m' x='-400' y='-400' width='2400' height='2400' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0016 0.003' numOctaves='3' seed='23' result='n'/%3E%3CfeDisplacementMap in='n' in2='n' scale='380' xChannelSelector='R' yChannelSelector='G' result='d'/%3E%3CfeColorMatrix in='d' type='matrix' values='0 0 0 0 0.01  0 0 0 0 0.12  0 0 0 0 0.12  1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 0 .12 .55 .8 .3 .04 0 0 0 0 0'/%3E%3C/feComponentTransfer%3E%3CfeGaussianBlur stdDeviation='3'/%3E%3C/filter%3E%3Crect x='-400' y='-400' width='2400' height='2400' filter='url%28%23m%29'/%3E%3C/svg%3E");
@@ -52,14 +64,12 @@
       45% { opacity: .7; }
     }
     @media (prefers-reduced-motion: reduce) { .tagline, .tagline .tube { animation: none; } }
-    /* Polaroid cards: white frame, deep bottom margin with a handwritten caption, each photo resting at a slight angle. */
+    /* Polaroid cards: white frame, deep bottom margin with a handwritten teaser and an always-visible play cue. Newest game first. */
     .games { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 40px 32px; list-style: none; margin: 0; padding: 0; justify-items: center; }
     .games > li { width: 100%; max-width: 300px; }
-    .card { display: flex; flex-direction: column; background: var(--photo-paper); color: var(--photo-ink); text-decoration: none; padding: 14px 14px 0; border-radius: 3px; height: 100%;
-      box-shadow: 0 1px 2px rgba(2, 30, 28, .3), 0 12px 28px rgba(2, 30, 28, .35); transform: rotate(var(--tilt, -1.5deg)); transition: transform .18s ease, box-shadow .18s ease; }
-    .games > li:nth-child(2n) .card { --tilt: 1.8deg; }
-    .games > li:nth-child(3n) .card { --tilt: -0.8deg; }
-    a.card:hover, a.card:focus-visible { transform: rotate(0deg) translateY(-6px); box-shadow: 0 2px 4px rgba(2, 30, 28, .3), 0 22px 40px rgba(2, 30, 28, .4); }
+    .card { position: relative; display: flex; flex-direction: column; background: var(--photo-paper); color: var(--photo-ink); text-decoration: none; padding: 14px 14px 0; border-radius: 3px; height: 100%;
+      box-shadow: 0 1px 2px rgba(2, 30, 28, .3), 0 12px 28px rgba(2, 30, 28, .35); transition: transform .18s ease, box-shadow .18s ease; }
+    a.card:hover, a.card:focus-visible { transform: translateY(-6px); box-shadow: 0 2px 4px rgba(2, 30, 28, .3), 0 22px 40px rgba(2, 30, 28, .4); }
     .card:focus-visible { outline: 3px solid var(--accent); outline-offset: 6px; }
     .art { aspect-ratio: 1 / 1; display: grid; place-items: center; position: relative; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .06);
       background:
@@ -75,14 +85,21 @@
     .night-title { font: 400 18px/1.6 'Press Start 2P', ui-monospace, Menlo, monospace; color: #e6493a; text-align: center; letter-spacing: .04em;
       text-shadow: 3px 3px 0 #3a0c09; margin: 0; }
     .night-title span { display: block; }
-    .strand { display: flex; align-items: center; gap: 6px; }
-    .strand span { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center;
-      font: 700 28px/1 var(--display); color: #1c1830; background: #ffffff;
-      box-shadow: 0 6px 14px rgba(120, 60, 140, .28); }
-    .caption { padding: 12px 6px 20px; display: flex; flex-direction: column; gap: 2px; flex: 1; }
-    .caption h2 { font: 700 1.9rem/1.1 var(--hand); margin: 0; }
-    .caption p { margin: 0; font: 600 1.15rem/1.25 var(--hand); color: var(--photo-muted); }
-    .soon .card { --tilt: 2.4deg; }
+    /* 13 Beads: the game's own wordmark, letter beads on a string (1 3, a pink bead, B E A D S). */
+    .mark { position: relative; display: flex; align-items: center; gap: 3px; }
+    .mark::before { content: ""; position: absolute; left: -9px; right: -9px; top: 50%; height: 2px; margin-top: -1px; background: #7f7398; border-radius: 2px; }
+    .mark span { position: relative; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center;
+      font: 700 16px/1 var(--display); color: #1c1830; background: linear-gradient(#ffffff, #e4dfec);
+      box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .14), 0 2px 4px rgba(60, 30, 90, .25); }
+    .mark span.dot { width: 13px; border-radius: 5px; background: linear-gradient(#ff8cc6, #d3217c); }
+    .caption { padding: 12px 6px 18px; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex: 1; }
+    .caption p { margin: 0; font: 600 1.3rem/1.3 var(--hand); color: var(--photo-ink); }
+    .play { display: inline-flex; align-items: center; gap: 4px; flex-shrink: 0; padding-bottom: 4px; font: 600 .72rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: #0b6b66; }
+    .play svg { transition: transform .18s ease; }
+    a.card:hover .play svg, a.card:focus-visible .play svg { transform: translateX(3px); }
+    .sticker { position: absolute; top: -14px; right: -14px; z-index: 1; width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center;
+      background: #e0177d; color: #ffffff; font: 800 .78rem/1 var(--title); letter-spacing: .06em; text-transform: uppercase;
+      transform: rotate(12deg); box-shadow: 0 4px 10px rgba(2, 30, 28, .35); }
     /* Saltwhisker: soft painted sea and sky, the title in the game's own font and the cat's sou'wester yellow. */
     .art-salt { overflow: hidden; background:
         radial-gradient(22% 22% at 74% 30%, rgba(255, 241, 184, .95), rgba(255, 241, 184, 0) 70%),
@@ -91,11 +108,20 @@
       text-shadow: 0 2px 0 #b07a12, 0 4px 14px rgba(10, 40, 60, .35); transform: rotate(-3deg) translateY(-6%); }
     .salt-title span { display: block; }
     .salt-title span + span { margin-left: .6em; }
-    .art-blank { background: linear-gradient(160deg, #4a4340, #2c2725 70%); }
+    /* The next game: an instant photo still developing, a slow fog that brightens and fades. */
+    .art-dev { overflow: hidden; background:
+        radial-gradient(55% 45% at 40% 38%, rgba(214, 206, 186, .75), transparent 70%),
+        radial-gradient(60% 50% at 72% 78%, rgba(150, 160, 140, .5), transparent 70%),
+        linear-gradient(160deg, #6f6a5e, #3f3c36 75%); }
+    .art-dev::after { content: ""; position: absolute; inset: 0; background: radial-gradient(45% 40% at 55% 50%, rgba(236, 230, 214, .55), transparent 70%); animation: develop 7s ease-in-out infinite alternate; }
+    @keyframes develop { from { opacity: .25; } to { opacity: .85; } }
+    @media (prefers-reduced-motion: reduce) { .art-dev::after { animation: none; opacity: .5; } }
+    .soon .caption p { color: var(--photo-muted); }
     footer { color: var(--muted); font-size: .9rem; }
+    footer p { margin: 0; }
     footer a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
     footer a:hover, footer a:focus-visible { color: var(--ink); }
-    @media (prefers-reduced-motion: reduce) { .card { transition: none; } }
+    @media (prefers-reduced-motion: reduce) { .card, .play svg { transition: none; } }
   </style>
 </head>
 <body>
@@ -106,47 +132,49 @@
     </header>
     <ul class="games">
       <li>
-        <a class="card" href="/13-beads/">
-          <div class="art" aria-hidden="true">
-            <div class="strand"><span>1</span><span>3</span></div>
-          </div>
-          <div class="caption">
-            <h2>13 Beads</h2>
-            <p>Make one. Trade one.</p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a class="card" href="/homebeforedark/">
-          <div class="art art-night" aria-hidden="true">
-            <p class="night-title"><span>HOME</span><span>BEFORE DARK</span></p>
-          </div>
-          <div class="caption">
-            <h2>Home Before Dark</h2>
-            <p>Pedal fast. Don't look back.</p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a class="card" href="/saltwhisker/">
+        <a class="card" href="/saltwhisker/" aria-label="Saltwhisker, new. Help Walter catch dinner.">
+          <span class="sticker" aria-hidden="true">New</span>
           <div class="art art-salt" aria-hidden="true">
             <p class="salt-title"><span>Salt</span><span>whisker</span></p>
           </div>
-          <div class="caption">
-            <h2>Saltwhisker</h2>
+          <div class="caption" aria-hidden="true">
+            <p>Help Walter<br>catch dinner.</p>
+            <span class="play">Play <svg viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="card" href="/homebeforedark/" aria-label="Home Before Dark. Pedal fast. Don't look back.">
+          <div class="art art-night" aria-hidden="true">
+            <p class="night-title"><span>HOME</span><span>BEFORE DARK</span></p>
+          </div>
+          <div class="caption" aria-hidden="true">
+            <p>Pedal fast.<br>Don't look back.</p>
+            <span class="play">Play <svg viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="card" href="/13-beads/" aria-label="13 Beads. Make one. Trade one.">
+          <div class="art" aria-hidden="true">
+            <div class="mark"><span>1</span><span>3</span><span class="dot"></span><span>B</span><span>E</span><span>A</span><span>D</span><span>S</span></div>
+          </div>
+          <div class="caption" aria-hidden="true">
+            <p>Make one.<br>Trade one.</p>
+            <span class="play">Play <svg viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
         </a>
       </li>
       <li class="soon">
-        <div class="card" aria-label="More games coming soon">
-          <div class="art art-blank" aria-hidden="true"></div>
-          <div class="caption">
-            <h2>Coming soon</h2>
+        <div class="card" role="img" aria-label="Another game, still developing">
+          <div class="art art-dev" aria-hidden="true"></div>
+          <div class="caption" aria-hidden="true">
+            <p>Still developing.</p>
           </div>
         </div>
       </li>
     </ul>
-    <footer><a href="https://shauna.dev">Made by Shauna.</a></footer>
+    <footer><p><a href="https://shauna.dev">Made by Shauna.</a> By day I build software for growing businesses at <a href="https://shauna.digital">shauna.digital</a>.</p></footer>
   </main>
 </body>
 </html>
