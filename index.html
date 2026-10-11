@@ -92,9 +92,10 @@
       font: 700 16px/1 var(--display); color: #1c1830; background: linear-gradient(#ffffff, #e4dfec);
       box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .14), 0 2px 4px rgba(60, 30, 90, .25); }
     .mark span.dot { width: 13px; border-radius: 5px; background: linear-gradient(#ff8cc6, #d3217c); }
-    .caption { padding: 12px 6px 18px; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex: 1; }
-    .caption p { margin: 0; font: 600 1.3rem/1.3 var(--hand); color: var(--photo-ink); }
-    .play { display: inline-flex; align-items: center; gap: 4px; flex-shrink: 0; padding-bottom: 4px; font: 600 .72rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: #0b6b66; }
+    .caption { padding: 14px 6px 22px; display: flex; align-items: center; flex: 1; }
+    /* One line, sized so the longest teaser fits the narrowest card (about 210px of caption). */
+    .caption p { margin: 0; font: 600 1rem/1.3 var(--hand); color: var(--photo-ink); white-space: nowrap; }
+    .play { position: absolute; right: 10px; bottom: 10px; display: inline-flex; align-items: center; gap: 4px; padding: 6px 9px 6px 11px; border-radius: 999px; background: rgba(251, 250, 246, .94); box-shadow: 0 2px 6px rgba(0, 0, 0, .25); font: 600 .7rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: #0b6b66; }
     .play svg { transition: transform .18s ease; }
     a.card:hover .play svg, a.card:focus-visible .play svg { transform: translateX(3px); }
     .sticker { position: absolute; top: -14px; right: -14px; z-index: 1; width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center;
@@ -137,10 +138,10 @@
           <span class="sticker" aria-hidden="true">New</span>
           <div class="art art-salt" aria-hidden="true">
             <p class="salt-title"><span>Salt</span><span>whisker</span></p>
+            <span class="play">Play <svg viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
           <div class="caption" aria-hidden="true">
-            <p>Help Walter<br>catch dinner.</p>
-            <span class="play">Play <svg viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <p>Help Walter catch dinner.</p>
           </div>
         </a>
       </li>
@@ -148,10 +149,10 @@
         <a class="card" href="/homebeforedark/" aria-label="Home Before Dark. Pedal fast. Don't look back.">
           <div class="art art-night" aria-hidden="true">
             <p class="night-title"><span>HOME</span><span>BEFORE DARK</span></p>
+            <span class="play">Play <svg viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
           <div class="caption" aria-hidden="true">
-            <p>Pedal fast.<br>Don't look back.</p>
-            <span class="play">Play <svg viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <p>Pedal fast. Don't look back.</p>
           </div>
         </a>
       </li>
@@ -159,10 +160,10 @@
         <a class="card" href="/13-beads/" aria-label="13 Beads. Make one. Trade one.">
           <div class="art" aria-hidden="true">
             <div class="mark"><span>1</span><span>3</span><span class="dot"></span><span>B</span><span>E</span><span>A</span><span>D</span><span>S</span></div>
+            <span class="play">Play <svg viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
           <div class="caption" aria-hidden="true">
-            <p>Make one.<br>Trade one.</p>
-            <span class="play">Play <svg viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <p>Make one. Trade one.</p>
           </div>
         </a>
       </li>
