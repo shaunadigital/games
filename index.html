@@ -117,10 +117,11 @@
     @keyframes develop { from { opacity: .25; } to { opacity: .85; } }
     @media (prefers-reduced-motion: reduce) { .art-dev::after { animation: none; opacity: .5; } }
     .soon .caption p { color: var(--photo-muted); }
-    footer { color: var(--muted); font-size: .9rem; }
-    footer p { margin: 0; }
+    /* Footer sits on a soft dark band so the light text clears 4.5:1 over any part of the marble. */
+    footer { font-size: .95rem; }
+    footer p { display: inline-block; margin: 0; padding: 9px 16px; border-radius: 18px; color: var(--ink); background: rgba(3, 36, 34, .62); }
     footer a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-    footer a:hover, footer a:focus-visible { color: var(--ink); }
+    footer a:hover, footer a:focus-visible { color: var(--accent); }
     @media (prefers-reduced-motion: reduce) { .card, .play svg { transition: none; } }
   </style>
 </head>
@@ -165,6 +166,7 @@
           </div>
         </a>
       </li>
+      <!-- Hidden 2026-10-11 (Shauna). Restore this card to tease the next game.
       <li class="soon">
         <div class="card" role="img" aria-label="Another game, still developing">
           <div class="art art-dev" aria-hidden="true"></div>
@@ -173,6 +175,7 @@
           </div>
         </div>
       </li>
+      -->
     </ul>
     <footer><p><a href="https://shauna.dev">Made by Shauna.</a> By day I build software for growing businesses at <a href="https://shauna.digital">shauna.digital</a>.</p></footer>
   </main>
