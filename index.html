@@ -8,7 +8,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2312968f'/%3E%3Cg transform='rotate%28-6 16 16%29'%3E%3Crect x='8' y='6' width='16' height='20' rx='1.5' fill='%23fbfaf6'/%3E%3Crect x='10' y='8' width='12' height='12' fill='%2306433f'/%3E%3C/g%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Figtree:wght@400;500;600&family=Syne:wght@800&family=Caveat:wght@600;700&family=Press+Start+2P&family=Neonderthaw&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Figtree:wght@400;500;600&family=Syne:wght@800&family=Caveat:wght@600;700&family=Press+Start+2P&family=Shantell+Sans:wght@800&family=Neonderthaw&display=swap">
   <style>
     :root {
       /* Marbled teal: a sea green base with glowing patches, plus smoky dark veins drawn by an SVG noise filter. One look in light and dark mode. */
@@ -83,8 +83,14 @@
     .caption h2 { font: 700 1.9rem/1.1 var(--hand); margin: 0; }
     .caption p { margin: 0; font: 600 1.15rem/1.25 var(--hand); color: var(--photo-muted); }
     .soon .card { --tilt: 2.4deg; }
-    .art-pier { background: #433a78; overflow: hidden; }
-    .art-pier svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    /* Saltwhisker: soft painted sea and sky, the title in the game's own font and the cat's sou'wester yellow. */
+    .art-salt { overflow: hidden; background:
+        radial-gradient(22% 22% at 74% 30%, rgba(255, 241, 184, .95), rgba(255, 241, 184, 0) 70%),
+        linear-gradient(180deg, #7cc3e4 0%, #b9e4f0 58%, #d9f1f2 64%, #3e93b5 64.5%, #2a7aa0 80%, #1d5f84 100%); }
+    .salt-title { margin: 0; font: 800 clamp(2.1rem, 9vw, 2.6rem)/.95 'Shantell Sans', var(--display); color: #ffcf3a; text-align: center; letter-spacing: -.01em;
+      text-shadow: 0 2px 0 #b07a12, 0 4px 14px rgba(10, 40, 60, .35); transform: rotate(-3deg) translateY(-6%); }
+    .salt-title span { display: block; }
+    .salt-title span + span { margin-left: .6em; }
     .art-blank { background: linear-gradient(160deg, #4a4340, #2c2725 70%); }
     footer { color: var(--muted); font-size: .9rem; }
     footer a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
@@ -123,24 +129,8 @@
       </li>
       <li>
         <a class="card" href="/saltwhisker/">
-          <div class="art art-pier" aria-hidden="true">
-            <svg viewBox="0 0 48 48" shape-rendering="crispEdges">
-              <rect x="0" y="0" width="48" height="8" fill="#433a78"/><rect x="0" y="8" width="48" height="7" fill="#674f74"/>
-              <rect x="0" y="15" width="48" height="6" fill="#8b6470"/><rect x="0" y="21" width="48" height="5" fill="#ae7a6b"/>
-              <rect x="0" y="26" width="48" height="4" fill="#d28f67"/><rect x="0" y="30" width="48" height="4" fill="#f6a463"/>
-              <rect x="4" y="5" width="1" height="1" fill="#f4e9c1"/><rect x="21" y="3" width="1" height="1" fill="#f4e9c1"/><rect x="40" y="6" width="1" height="1" fill="#f4e9c1"/>
-              <rect x="36" y="27" width="6" height="1" fill="#ffd38a"/><rect x="35" y="28" width="8" height="4" fill="#ffd38a"/><rect x="36" y="32" width="6" height="1" fill="#ffd38a"/>
-              <rect x="0" y="34" width="48" height="14" fill="#5b5a93"/><rect x="0" y="41" width="48" height="7" fill="#413f74"/>
-              <rect x="34" y="35" width="10" height="1" fill="#ffd38a" opacity=".7"/><rect x="8" y="39" width="4" height="1" fill="#f3b88f"/><rect x="30" y="44" width="5" height="1" fill="#f3b88f"/>
-              <rect x="5" y="36" width="2" height="12" fill="#2e1c13"/><rect x="24" y="36" width="2" height="12" fill="#2e1c13"/>
-              <rect x="0" y="33" width="31" height="1" fill="#93603f"/><rect x="0" y="34" width="31" height="2" fill="#64402e"/><rect x="0" y="36" width="31" height="1" fill="#3f271a"/>
-              <g transform="translate(13 18)">
-                <rect x="9" y="0" width="1" height="1" fill="#1b1a22"/><rect x="13" y="0" width="1" height="1" fill="#1b1a22"/><rect x="8" y="1" width="1" height="1" fill="#ffcf3a"/><rect x="9" y="1" width="1" height="1" fill="#1b1a22"/><rect x="10" y="1" width="3" height="1" fill="#ffcf3a"/><rect x="13" y="1" width="1" height="1" fill="#1b1a22"/><rect x="14" y="1" width="1" height="1" fill="#ffcf3a"/><rect x="7" y="2" width="8" height="1" fill="#ffcf3a"/><rect x="6" y="3" width="1" height="1" fill="#c98f17"/><rect x="7" y="3" width="9" height="1" fill="#ffcf3a"/><rect x="6" y="4" width="2" height="1" fill="#c98f17"/><rect x="8" y="4" width="4" height="1" fill="#1b1a22"/><rect x="12" y="4" width="1" height="1" fill="#ffd23f"/><rect x="13" y="4" width="2" height="1" fill="#1b1a22"/><rect x="7" y="5" width="1" height="1" fill="#c98f17"/><rect x="8" y="5" width="3" height="1" fill="#1b1a22"/><rect x="11" y="5" width="3" height="1" fill="#f4f1ea"/><rect x="14" y="5" width="1" height="1" fill="#e58a9a"/><rect x="8" y="6" width="3" height="1" fill="#1b1a22"/><rect x="11" y="6" width="3" height="1" fill="#f4f1ea"/><rect x="6" y="7" width="5" height="1" fill="#1b1a22"/><rect x="11" y="7" width="2" height="1" fill="#f4f1ea"/><rect x="13" y="7" width="1" height="1" fill="#1b1a22"/><rect x="5" y="8" width="6" height="1" fill="#1b1a22"/><rect x="11" y="8" width="3" height="1" fill="#f4f1ea"/><rect x="14" y="8" width="1" height="1" fill="#1b1a22"/><rect x="4" y="9" width="7" height="1" fill="#1b1a22"/><rect x="11" y="9" width="5" height="1" fill="#f4f1ea"/><rect x="0" y="10" width="1" height="1" fill="#1b1a22"/><rect x="4" y="10" width="7" height="1" fill="#1b1a22"/><rect x="11" y="10" width="3" height="1" fill="#f4f1ea"/><rect x="14" y="10" width="1" height="1" fill="#1b1a22"/><rect x="0" y="11" width="1" height="1" fill="#1b1a22"/><rect x="3" y="11" width="8" height="1" fill="#1b1a22"/><rect x="11" y="11" width="3" height="1" fill="#f4f1ea"/><rect x="14" y="11" width="1" height="1" fill="#1b1a22"/><rect x="0" y="12" width="2" height="1" fill="#1b1a22"/><rect x="3" y="12" width="9" height="1" fill="#1b1a22"/><rect x="12" y="12" width="2" height="1" fill="#f4f1ea"/><rect x="14" y="12" width="1" height="1" fill="#1b1a22"/><rect x="1" y="13" width="14" height="1" fill="#1b1a22"/><rect x="2" y="14" width="13" height="1" fill="#1b1a22"/><rect x="3" y="15" width="5" height="1" fill="#1b1a22"/><rect x="8" y="15" width="2" height="1" fill="#f4f1ea"/><rect x="11" y="15" width="2" height="1" fill="#f4f1ea"/>
-              </g>
-              <line x1="28.5" y1="27.5" x2="44" y2="13" stroke="#6b4a2e" stroke-width=".8" shape-rendering="auto"/>
-              <line x1="44" y1="13" x2="42.5" y2="38" stroke="#fbe7d4" stroke-width=".3" opacity=".8" shape-rendering="auto"/>
-              <rect x="41" y="37" width="3" height="1" fill="#d8433a"/><rect x="41" y="38" width="3" height="1" fill="#f4f1ea"/><rect x="38" y="39" width="9" height="1" fill="#f3b88f"/>
-            </svg>
+          <div class="art art-salt" aria-hidden="true">
+            <p class="salt-title"><span>Salt</span><span>whisker</span></p>
           </div>
           <div class="caption">
             <h2>Saltwhisker</h2>
