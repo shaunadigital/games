@@ -18,10 +18,17 @@
   <meta name="twitter:description" content="Little games for late nights. Made by Shauna.">
   <meta name="twitter:image" content="https://games.shauna.digital/og.png">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2312968f'/%3E%3Cg transform='rotate%28-6 16 16%29'%3E%3Crect x='8' y='6' width='16' height='20' rx='1.5' fill='%23fbfaf6'/%3E%3Crect x='10' y='8' width='12' height='12' fill='%2306433f'/%3E%3C/g%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Figtree:wght@400;500;600&family=Syne:wght@800&family=Momo+Signature&family=Press+Start+2P&family=Shantell+Sans:wght@800&family=Neonderthaw&display=swap">
+  <link rel="preload" href="fonts/syne-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/neonderthaw-400.woff2" as="font" type="font/woff2" crossorigin>
   <style>
+    /* Self-hosted font subsets: each file holds only the characters the page shows. Rebuild with tools/subset-fonts.py after changing any visible text. */
+    @font-face { font-family: 'Syne'; font-style: normal; font-weight: 800; font-display: swap; src: url(fonts/syne-800.woff2) format('woff2'); }
+    @font-face { font-family: 'Neonderthaw'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/neonderthaw-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Fredoka'; font-style: normal; font-weight: 700; font-display: swap; src: url(fonts/fredoka-700.woff2) format('woff2'); }
+    @font-face { font-family: 'Press Start 2P'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/press-start-2p-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Shantell Sans'; font-style: normal; font-weight: 800; font-display: swap; src: url(fonts/shantell-sans-800.woff2) format('woff2'); }
+    @font-face { font-family: 'Momo Signature'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/momo-signature-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/figtree-400.woff2) format('woff2'); }
     :root {
       /* Colors and fonts. The page background is the gooey blobs (see .bg below). One look in light and dark mode. */
       --teal: #12968f; --teal-glow: #3fd9c8; --teal-deep: #06433f;

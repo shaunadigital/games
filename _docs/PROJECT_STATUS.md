@@ -11,6 +11,7 @@ All of this is committed to `main` and deployed to https://games.shauna.digital.
 - Footer: "Made by Shauna." (shauna.dev) plus a line to shauna.digital, on a dark band.
 - Link previews: `og.png` plus Open Graph and Twitter card tags. Saltwhisker has its own preview image (`og.jpg` in its repo, a moonlit pier shot).
 - All three games link back to the games page (checked on the live sites 2026-10-11).
+- Fonts: self-hosted subsets in `fonts/`, about 38 KB in total, no requests to Google.
 - There is no test suite. Changes are checked by rendering the page with Playwright at phone and desktop widths.
 
 ## Decisions
@@ -33,14 +34,14 @@ Append new rows. If a row stops being true, mark it superseded rather than delet
 | 2026-10-11 | Background is the gooey blobs (mix A), Sunset lava colors, "just the way it is for now". | Shauna passed on the teal marble, glow-in-the-dark ceiling stars, a corkboard with string lights, arcade carpet, a stars and lights mix, and a 70s bead curtain. Ribbed glass over the blobs was dropped because it hides the split and merge and is the heaviest effect on phones. |
 | 2026-10-11 | Phone interactions: tap to split, scroll drift, color pull on scroll. | All work through touch and scroll, so there is no "allow motion" prompt and iPhone and Android behave the same. |
 | 2026-10-11 | Blobs are metaballs on a low-resolution canvas, not an SVG blur filter. | A full-screen SVG blur every frame is too heavy for phones. The canvas runs at about 30 frames a second. |
+| 2026-10-11 | Fonts self-hosted as per-font subsets of only the characters shown (`tools/subset-fonts.py`). | All page text is fixed, so this cut fonts from about 219 KB in 9 files from two Google servers to about 38 KB in 7 files from this site, with no extra connections before the title can draw. Figtree keeps basic Latin so footer edits do not break; Figtree 500 and 600 were dropped because nothing used them. |
 
 ## Queue
 
 1. Check the blobs on an older phone. If it stutters, use one canvas pixel per 4 screen pixels on phones, or fewer droplets.
-2. Font weight: seven font families load on every visit, four of them only for the card art (Fredoka, Press Start 2P, Shantell Sans) and one for the tagline. Consider subsetting them or drawing the card titles as images.
-3. Tab icon is still the teal polaroid. Ask Shauna whether it should move to the plum and pink palette.
-4. When a game is added: put its card first, move the "New" sticker, measure its teaser (one line at 14px within 224px), add its tint color in the background script (`TINT`, keyed by its path), regenerate `og.png`, and update the README tables.
-5. Refresh Saltwhisker's `og.jpg` when its art changes.
+2. Tab icon is still the teal polaroid. Ask Shauna whether it should move to the plum and pink palette.
+3. When a game is added: put its card first, move the "New" sticker, measure its teaser (one line at 14px within 224px), add its card title and teaser to `tools/subset-fonts.py` and rebuild the fonts, add its tint color in the background script (`TINT`, keyed by its path), regenerate `og.png`, and update the README tables.
+4. Refresh Saltwhisker's `og.jpg` when its art changes.
 
 ## How to
 
@@ -53,5 +54,7 @@ main{max-width:858px!important;padding:64px 0 0!important;gap:30px!important}
 .tagline,.tagline .tube{animation:none!important}
 body{min-height:630px!important;overflow:hidden}
 ```
+
+**Rebuild the fonts.** After changing any visible text, add it to `tools/subset-fonts.py`, run `python3 tools/subset-fonts.py` from the repository root, and paste the printed `@font-face` rules over the block at the top of the `<style>` in `index.html`.
 
 **Check a teaser fits.** Render it in Momo Signature at 14px with `white-space: nowrap` and read its width. It must be 224px or less.
