@@ -10,7 +10,7 @@ Little browser games for late nights. This repository is the home page that ties
 |---|---|
 | [13 Beads](https://games.shauna.digital/13-beads/) | String a friendship bracelet in 3D, spell a phrase, and hang it on your wall. ([repo](https://github.com/shaunagits/13-beads)) |
 | [Home Before Dark](https://games.shauna.digital/homebeforedark/) | Pedal fast. Don't look back. |
-| [Saltwhisker](https://games.shauna.digital/saltwhisker/) | A tuxedo cat in a yellow sou'wester fishes off a pier for his dinner. ([repo](https://github.com/shaunagits/saltwhisker)) |
+| [Saltwhisker](https://games.shauna.digital/saltwhisker/) | Walter, a tuxedo cat in a yellow sou'wester, fishes off a pier for his dinner. ([repo](https://github.com/shaunagits/saltwhisker)) |
 
 ## How it is set up
 
@@ -41,7 +41,7 @@ Little browser games for late nights. This repository is the home page that ties
 ## Things to know
 
 - A game saves player data per web address. Data saved at a game's own `vercel.app` address does not appear at `games.shauna.digital/<path>`.
-- Home page design (updated 2026-10-11): title "Midnights" in Syne, a flickering pink neon tagline "Little games for late nights." (Neonderthaw), straight polaroid game cards with one-line handwritten teasers (Momo Signature), newest game first with a "New" sticker, a hidden "Still developing." card ready for the next game, on a marbled teal background drawn in code. Colors and fonts are defined at the top of the `<style>` block in `index.html`.
+- Home page design (updated 2026-10-11): title "Midnights" in Syne, a flickering pink neon tagline "Little games for late nights." (Neonderthaw), straight polaroid game cards with one-line handwritten teasers (Momo Signature), newest game first with a "New" sticker, a hidden "Still developing." card ready for the next game, over an animated background of glowing blobs that follow the cursor or finger, take on a game's color when you hover or scroll to its card, split when you tap empty space, and drift as you scroll. Colors and fonts are defined at the top of the `<style>` block in `index.html`; the background is the `.bg` styles and the script at the end of the file.
 - Link previews: `og.png` (1200 by 630) plus Open Graph and Twitter card tags in the page head. Regenerate the image when the cards change.
 - All artwork is original. No artist names, logos, album artwork, or lyrics.
 
