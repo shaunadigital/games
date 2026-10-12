@@ -12,7 +12,7 @@
   <meta property="og:image" content="https://games.shauna.digital/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Midnights: three little games shown as polaroids on a marbled teal background.">
+  <meta property="og:image:alt" content="Midnights: three little games shown as polaroids over glowing pink, orange and violet blobs.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Midnights: little games for late nights">
   <meta name="twitter:description" content="Little games for late nights. Made by Shauna.">
@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Figtree:wght@400;500;600&family=Syne:wght@800&family=Momo+Signature&family=Press+Start+2P&family=Shantell+Sans:wght@800&family=Neonderthaw&display=swap">
   <style>
     :root {
-      /* Marbled teal: a sea green base with glowing patches, plus smoky dark veins drawn by an SVG noise filter. One look in light and dark mode. */
+      /* Colors and fonts. The page background is the gooey blobs (see .bg below). One look in light and dark mode. */
       --teal: #12968f; --teal-glow: #3fd9c8; --teal-deep: #06433f;
       --ink: #eef7f2; --muted: #b9dcd5; --accent: #ffe7a8;
       --display: 'Fredoka', 'Arial Rounded MT Bold', 'Trebuchet MS', sans-serif;
@@ -31,18 +31,12 @@
       --hand: 'Momo Signature', 'Bradley Hand', 'Segoe Print', cursive;
       --body: 'Figtree', 'Segoe UI', system-ui, sans-serif;
       --photo-paper: #fbfaf6; --photo-ink: #2a2433; --photo-muted: #6b6474;
-      --marble: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1600' preserveAspectRatio='xMidYMid slice'%3E%3Cfilter id='m' x='-400' y='-400' width='2400' height='2400' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0016 0.003' numOctaves='3' seed='23' result='n'/%3E%3CfeDisplacementMap in='n' in2='n' scale='380' xChannelSelector='R' yChannelSelector='G' result='d'/%3E%3CfeColorMatrix in='d' type='matrix' values='0 0 0 0 0.01  0 0 0 0 0.12  0 0 0 0 0.12  1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 0 .12 .55 .8 .3 .04 0 0 0 0 0'/%3E%3C/feComponentTransfer%3E%3CfeGaussianBlur stdDeviation='3'/%3E%3C/filter%3E%3Crect x='-400' y='-400' width='2400' height='2400' filter='url%28%23m%29'/%3E%3C/svg%3E");
       color-scheme: dark;
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; }
     body {
-      background-color: var(--teal);
-      background-image: var(--marble),
-        radial-gradient(45% 35% at 22% 18%, color-mix(in srgb, var(--teal-glow) 70%, transparent), transparent 70%),
-        radial-gradient(50% 40% at 80% 55%, color-mix(in srgb, var(--teal-glow) 55%, transparent), transparent 70%),
-        radial-gradient(60% 50% at 40% 95%, color-mix(in srgb, var(--teal-deep) 70%, transparent), transparent 75%);
-      background-size: cover, 100% 100%, 100% 100%, 100% 100%; background-position: center;
+      background: #0b0416;
       min-height: 100vh; color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.5;
       padding: env(safe-area-inset-top, 0px) max(20px, env(safe-area-inset-right, 0px)) env(safe-area-inset-bottom, 0px) max(20px, env(safe-area-inset-left, 0px));
     }
@@ -115,15 +109,28 @@
     @keyframes develop { from { opacity: .25; } to { opacity: .85; } }
     @media (prefers-reduced-motion: reduce) { .art-dev::after { animation: none; opacity: .5; } }
     .soon .caption p { color: var(--photo-muted); }
-    /* Footer sits on a soft dark band so the light text clears 4.5:1 over any part of the marble. */
+    /* Footer sits on a soft dark band so the light text clears 4.5:1 over any part of the background. */
     footer { font-size: .95rem; }
-    footer p { display: inline-block; margin: 0; padding: 9px 16px; border-radius: 18px; color: var(--ink); background: rgba(3, 36, 34, .62); }
+    footer p { display: inline-block; margin: 0; padding: 9px 16px; border-radius: 18px; color: var(--ink); background: rgba(8, 4, 16, .78); }
     footer a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
     footer a:hover, footer a:focus-visible { color: var(--accent); }
     @media (prefers-reduced-motion: reduce) { .card { transition: none; } }
+    /* Background: gooey blobs (chosen 2026-10-11). Metaballs drawn on a small canvas and scaled up, film grain on top.
+       Cursor or finger blob with liquid stretch and droplets; hover a card (or scroll one to the middle on a phone) to pull its color;
+       tap empty space to split a blob; scrolling makes the blobs drift. Still for reduced motion. */
+    .bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
+      background: radial-gradient(90% 80% at 50% 30%, #2a0f4a 0%, #160828 60%, #0b0416 100%); }
+    .bg canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .bg .grain { position: absolute; left: -10%; top: -10%; width: 120%; height: 120%; opacity: .2; mix-blend-mode: overlay; animation: grain .9s steps(5) infinite; }
+    @keyframes grain { 0% { transform: translate(0, 0); } 20% { transform: translate(-3%, 2%); } 40% { transform: translate(2%, -3%); } 60% { transform: translate(-2%, -2%); } 80% { transform: translate(3%, 3%); } 100% { transform: translate(0, 0); } }
+    @media (prefers-reduced-motion: reduce) { .bg .grain { animation: none; } }
   </style>
 </head>
 <body>
+  <div class="bg" aria-hidden="true">
+    <canvas class="lava"></canvas>
+    <svg class="grain"><filter id="grainf"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#grainf)"/></svg>
+  </div>
   <main>
     <header>
       <h1>Midnights</h1>
@@ -174,5 +181,114 @@
     </ul>
     <footer><p><a href="https://shauna.dev">Made by Shauna.</a> By day I build software for growing businesses at <a href="https://shauna.digital">shauna.digital</a>.</p></footer>
   </main>
+  <script>
+  (() => {
+    const cv = document.querySelector('.lava'), ctx = cv.getContext('2d');
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const touch = matchMedia('(hover: none)').matches;
+    const hex = (h) => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+    const PAL = ['#ff2d95', '#ff6a2b', '#7b3dff', '#ff2d95', '#ff9a3d', '#9b4dff', '#ff6a2b', '#7b3dff'].map(hex);
+    const CUR = hex('#ff2d95');
+    const TINT = { saltwhisker: hex('#ffcf3a'), homebeforedark: hex('#e6493a'), '13-beads': hex('#ff5fae') };
+    const mix = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
+    let W, H, S, w, h, img, k;
+    const A = [[.12, .19, 110, .05, .045], [.88, .23, 130, .055, .055], [.21, .84, 120, .06, .045], [.84, .84, 100, .05, .065], [.44, .96, 90, .07, .035], [.6, .1, 80, .06, .035], [.05, .58, 70, .03, .08], [.96, .58, 80, .03, .065]];
+    const blobs = A.map((a, i) => ({ fx: a[0], fy: a[1], r0: a[2], g: 1, ax: a[3], ay: a[4], p: i * 1.7, w: .11 + .03 * (i % 4), ox: 0, oy: 0, ovx: 0, ovy: 0, x: 0, y: 0, base: PAL[i], col: PAL[i].slice() }));
+    let kids = [], drops = [], tint = null, t = 0;
+    const cur = { x: 0, y: 0, vx: 0, vy: 0, col: CUR.slice() }, ptr = { x: 0, y: 0 };
+    function resize() {
+      W = innerWidth; H = innerHeight; S = W > 1600 ? 4 : 3;
+      w = Math.ceil(W / S); h = Math.ceil(H / S); cv.width = w; cv.height = h; img = ctx.createImageData(w, h);
+      k = Math.max(.5, Math.min(1, Math.min(W, H) / 900));
+    }
+    resize();
+    cur.x = ptr.x = W * .82; cur.y = ptr.y = H * .72;
+    const curR = () => 50 * Math.max(.75, k);
+    addEventListener('resize', () => { resize(); if (reduce) { step(); draw(); } });
+    addEventListener('pointermove', (e) => { ptr.x = e.clientX; ptr.y = e.clientY; }, { passive: true });
+    addEventListener('pointerdown', (e) => { ptr.x = e.clientX; ptr.y = e.clientY; }, { passive: true });
+    const keyOf = (a) => { const m = (a.getAttribute('href') || '').match(/[\w-]+/); return m ? m[0] : null; };
+    if (!touch) document.querySelectorAll('a.card').forEach((a) => {
+      a.addEventListener('pointerenter', () => { tint = keyOf(a); });
+      a.addEventListener('pointerleave', () => { tint = null; });
+    });
+    function scrollTint() {
+      if (!touch) return;
+      let best = null, bd = 1e9;
+      document.querySelectorAll('a.card').forEach((a) => { const r = a.getBoundingClientRect(); const d = Math.abs(r.top + r.height / 2 - H / 2); if (d < bd) { bd = d; best = a; } });
+      tint = best && bd < H * .45 ? keyOf(best) : null;
+    }
+    let lastY = scrollY;
+    addEventListener('scroll', () => {
+      const d = scrollY - lastY; lastY = scrollY;
+      if (!reduce) { for (const b of blobs) b.ovy -= d * .09 * (.6 + .4 * b.r0 / 130); cur.vy -= d * .05; for (const q of drops) q.vy -= d * .08; }
+      scrollTint();
+    }, { passive: true });
+    scrollTint();
+    addEventListener('click', (e) => {
+      if (reduce || e.target.closest('a, header, footer, button')) return;
+      split(e.clientX, e.clientY);
+    });
+    function split(x, y) {
+      let best = null, bd = 1e9;
+      for (const b of blobs) { const d = Math.hypot(b.x - x, b.y - y); if (d < b.r0 * k * 1.8 && d < bd && !kids.some((q) => q.par === b)) { best = b; bd = d; } }
+      if (!best) { for (let i = 0; i < 3; i++) drops.push({ x, y, vx: (Math.random() - .5) * 14, vy: (Math.random() - .5) * 14, r: curR() * (.25 + Math.random() * .25), age: 0, col: cur.col }); return; }
+      let dx = best.x - x, dy = best.y - y; const L = Math.hypot(dx, dy) || 1; dx /= L; dy /= L;
+      const px = -dy, py = dx;
+      best.g = .72; best.ovx += px * 7; best.ovy += py * 7;
+      kids.push({ par: best, x: best.x, y: best.y, vx: -px * 7, vy: -py * 7, age: 0 });
+    }
+    function step() {
+      t += 1 / 30;
+      for (const b of blobs) {
+        b.ovx += -b.ox * .012; b.ovy += -b.oy * .012; b.ovx *= .94; b.ovy *= .94; b.ox += b.ovx; b.oy += b.ovy;
+        b.x = b.fx * W + b.ax * W * Math.sin(t * b.w + b.p) + b.ox;
+        b.y = b.fy * H + b.ay * H * Math.cos(t * b.w * .8 + b.p * 1.3) + b.oy;
+        if (!kids.some((q) => q.par === b)) b.g += (1 - b.g) * .04;
+        const target = tint ? mix(b.base, TINT[tint], .45) : b.base;
+        b.col = mix(b.col, target, .06);
+      }
+      for (const q of kids) { q.age++; if (q.age > 75) { q.vx += (q.par.x - q.x) * .0025; q.vy += (q.par.y - q.y) * .0025; } q.vx *= .965; q.vy *= .965; q.x += q.vx; q.y += q.vy; }
+      kids = kids.filter((q) => !(q.age > 75 && Math.hypot(q.par.x - q.x, q.par.y - q.y) < q.par.r0 * k * .36));
+      const nx = cur.x + (ptr.x - cur.x) * .12, ny = cur.y + (ptr.y - cur.y) * .12 + cur.vy * .0;
+      cur.vx = nx - cur.x; cur.vy = (ny - cur.y) + cur.vy * .3; cur.x = nx; cur.y += cur.vy;
+      cur.col = mix(cur.col, tint ? TINT[tint] : CUR, .1);
+      const sp = Math.hypot(cur.vx, cur.vy);
+      if (sp > 9 && drops.length < 14 && Math.random() < .5) drops.push({ x: cur.x - cur.vx * 2 + (Math.random() - .5) * 30, y: cur.y - cur.vy * 2 + (Math.random() - .5) * 30, vx: -cur.vx * .25 + (Math.random() - .5) * 3, vy: -cur.vy * .25 + (Math.random() - .5) * 3, r: curR() * (.14 + Math.random() * .2), age: 0, col: cur.col });
+      for (const q of drops) { q.age++; q.vx += (cur.x - q.x) * .004; q.vy += (cur.y - q.y) * .004; q.vx *= .93; q.vy *= .93; q.x += q.vx; q.y += q.vy; }
+      drops = drops.filter((q) => q.age < 300 && !(q.age > 25 && Math.hypot(cur.x - q.x, cur.y - q.y) < curR() * .5));
+    }
+    function draw() {
+      const L = [];
+      for (const b of blobs) { const r = b.r0 * k * b.g; L.push({ x: b.x, y: b.y, r2: r * r, c: b.col }); }
+      for (const q of kids) { const r = q.par.r0 * k * .72; L.push({ x: q.x, y: q.y, r2: r * r, c: q.par.col }); }
+      for (const q of drops) { const r = q.r * Math.min(1, (q.age + 1) / 8); L.push({ x: q.x, y: q.y, r2: r * r, c: cur.col }); }
+      const sp = Math.hypot(cur.vx, cur.vy), st = Math.min(.55, sp / 30), an = Math.atan2(cur.vy, cur.vx), cr = curR();
+      L.push({ x: cur.x, y: cur.y, r2: cr * cr, c: cur.col, e: true, co: Math.cos(an), si: Math.sin(an), sx: 1 + st, sy: 1 / (1 + st) });
+      const d = img.data, n = L.length;
+      for (let j = 0; j < h; j++) {
+        const py = (j + .5) * S;
+        for (let i = 0; i < w; i++) {
+          const px = (i + .5) * S; let f = 0, r = 0, g = 0, b = 0;
+          for (let m = 0; m < n; m++) {
+            const q = L[m]; let dx = px - q.x, dy = py - q.y;
+            if (q.e) { const u = dx * q.co + dy * q.si, v = -dx * q.si + dy * q.co; dx = u / q.sx; dy = v / q.sy; }
+            const c = q.r2 / (dx * dx + dy * dy + 1); f += c; r += c * q.c[0]; g += c * q.c[1]; b += c * q.c[2];
+          }
+          const o = (j * w + i) * 4;
+          if (f < .9) { d[o + 3] = 0; continue; }
+          const a = f >= 1.04 ? 1 : (f - .9) / .14, sm = a * a * (3 - 2 * a), lift = Math.max(0, Math.min(.16, (f - 1.2) * .05));
+          r /= f; g /= f; b /= f;
+          d[o] = r + (255 - r) * lift; d[o + 1] = g + (255 - g) * lift; d[o + 2] = b + (255 - b) * lift; d[o + 3] = sm * 245;
+        }
+      }
+      ctx.putImageData(img, 0, 0);
+    }
+    step(); draw();
+    if (reduce) return;
+    let last = 0;
+    (function loop(ts) { requestAnimationFrame(loop); if (ts - last < 33) return; last = ts; step(); draw(); })(0);
+  })();
+  </script>
 </body>
 </html>
