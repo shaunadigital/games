@@ -64,7 +64,7 @@
       45% { opacity: .7; }
     }
     @media (prefers-reduced-motion: reduce) { .tagline, .tagline .tube { animation: none; } }
-    /* Polaroid cards: white frame, deep bottom margin with a handwritten teaser and an always-visible play cue. Newest game first. */
+    /* Polaroid cards: white frame, deep bottom margin with a handwritten teaser. The whole card is the link. Newest game first. */
     .games { display: grid; grid-template-columns: repeat(auto-fill, minmax(264px, 1fr)); gap: 40px 32px; list-style: none; margin: 0; padding: 0; justify-items: center; }
     .games > li { width: 100%; max-width: 300px; }
     .card { position: relative; display: flex; flex-direction: column; background: var(--photo-paper); color: var(--photo-ink); text-decoration: none; padding: 14px 14px 0; border-radius: 3px; height: 100%;
@@ -95,9 +95,6 @@
     .caption { padding: 14px 6px 22px; display: flex; align-items: center; flex: 1; }
     /* One line, sized so the longest teaser (221px at 14px) fits the narrowest card (264px card, 224px of caption). */
     .caption p { margin: 0; font: 400 .875rem/1.35 var(--hand); color: var(--photo-ink); white-space: nowrap; }
-    .play { position: absolute; right: 10px; bottom: 10px; display: inline-flex; align-items: center; gap: 4px; padding: 6px 9px 6px 11px; border-radius: 999px; background: rgba(251, 250, 246, .94); box-shadow: 0 2px 6px rgba(0, 0, 0, .25); font: 600 .7rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: #0b6b66; }
-    .play svg { transition: transform .18s ease; }
-    a.card:hover .play svg, a.card:focus-visible .play svg { transform: translateX(3px); }
     .sticker { position: absolute; top: -14px; right: -14px; z-index: 1; width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center;
       background: #e0177d; color: #ffffff; font: 800 .78rem/1 var(--title); letter-spacing: .06em; text-transform: uppercase;
       transform: rotate(12deg); box-shadow: 0 4px 10px rgba(2, 30, 28, .35); }
@@ -123,7 +120,7 @@
     footer p { display: inline-block; margin: 0; padding: 9px 16px; border-radius: 18px; color: var(--ink); background: rgba(3, 36, 34, .62); }
     footer a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
     footer a:hover, footer a:focus-visible { color: var(--accent); }
-    @media (prefers-reduced-motion: reduce) { .card, .play svg { transition: none; } }
+    @media (prefers-reduced-motion: reduce) { .card { transition: none; } }
   </style>
 </head>
 <body>
@@ -138,7 +135,6 @@
           <span class="sticker" aria-hidden="true">New</span>
           <div class="art art-salt" aria-hidden="true">
             <p class="salt-title"><span>Salt</span><span>whisker</span></p>
-            <span class="play">Play <svg viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
           <div class="caption" aria-hidden="true">
             <p>Feed Walter by eight.</p>
@@ -149,7 +145,6 @@
         <a class="card" href="/homebeforedark/" aria-label="Home Before Dark. Pedal fast, don't look back.">
           <div class="art art-night" aria-hidden="true">
             <p class="night-title"><span>HOME</span><span>BEFORE DARK</span></p>
-            <span class="play">Play <svg viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
           <div class="caption" aria-hidden="true">
             <p>Pedal fast, don't look back.</p>
@@ -160,7 +155,6 @@
         <a class="card" href="/13-beads/" aria-label="13 Beads. Make and trade bracelets.">
           <div class="art" aria-hidden="true">
             <div class="mark"><span>1</span><span>3</span><span class="dot"></span><span>B</span><span>E</span><span>A</span><span>D</span><span>S</span></div>
-            <span class="play">Play <svg viewBox="0 0 16 16" width="14" height="14"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
           <div class="caption" aria-hidden="true">
             <p>Make and trade bracelets.</p>
