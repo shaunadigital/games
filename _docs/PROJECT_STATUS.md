@@ -10,7 +10,7 @@ All of this is committed to `main` and deployed to https://games.shauna.digital.
 - Background: gooey blobs in the Sunset lava colors, with color pull, liquid stretch, tap to split, scroll drift and film grain. See `CLAUDE.md` for how it behaves.
 - Footer: "Made by Shauna." (shauna.dev) plus a line to shauna.digital, on a dark band.
 - Link previews: `og.png` plus Open Graph and Twitter card tags. Saltwhisker has its own preview image (`og.jpg` in its repo, a moonlit pier shot).
-- All three games link back to the games page (checked on the live sites 2026-10-11).
+- All four games link back to the games page (the first three checked 2026-10-11; TropiChop's "More games" link on its menu checked 2026-10-16).
 - Fonts: self-hosted subsets in `fonts/`, about 38 KB in total, no requests to Google.
 - There is no test suite. Changes are checked by rendering the page with Playwright at phone and desktop widths.
 
@@ -42,10 +42,11 @@ Append new rows. If a row stops being true, mark it superseded rather than delet
 
 ## Queue
 
-1. Check the blobs on an older phone. If it stutters, use one canvas pixel per 4 screen pixels on phones, or fewer droplets.
-2. Tab icon is still the teal polaroid. Ask Shauna whether it should move to the plum and pink palette.
-3. When a game is added: put its card first, move the "New" sticker, add its card title to `tools/subset-fonts.py` if it uses a page font and rebuild the fonts, add its tint color in the background script (`TINT`, keyed by its path), regenerate `og.png`, and update the README tables.
-4. Refresh Saltwhisker's `og.jpg` when its art changes.
+1. Decide with Shauna: on desktop, 13 Beads now sits alone on the second row (4 cards, 3 columns). Options: leave it, or restore the hidden "Still developing." card so the row has two. Asked 2026-10-16, no answer yet.
+2. Check the blobs on an older phone. If it stutters, use one canvas pixel per 4 screen pixels on phones, or fewer droplets.
+3. Tab icon is still the teal polaroid. Ask Shauna whether it should move to the plum and pink palette.
+4. When a game is added: put its card first, move the "New" sticker, add its card title to `tools/subset-fonts.py` if it uses a page font and rebuild the fonts, add its tint color in the background script (`TINT`, keyed by its path), regenerate `og.png`, and update the README tables.
+5. Refresh Saltwhisker's `og.jpg` when its art changes.
 
 ## How to
 
