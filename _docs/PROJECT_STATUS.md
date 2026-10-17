@@ -1,12 +1,12 @@
 # Project status
 
-Last updated 2026-10-11.
+Last updated 2026-10-16.
 
 ## Live now
 
 All of this is committed to `main` and deployed to https://games.shauna.digital.
 
-- Cards: Saltwhisker (with a "New" sticker), Home Before Dark, 13 Beads, in that order. Straight polaroids, one-line teasers in Momo Signature, no Play buttons (the whole card is the link). The "Still developing." card is hidden in an HTML comment.
+- Cards: TropiChop (with a "New" sticker), Saltwhisker, Home Before Dark, 13 Beads, in that order. Straight polaroids, one-line teasers in Momo Signature, no Play buttons (the whole card is the link). The "Still developing." card is hidden in an HTML comment.
 - Background: gooey blobs in the Sunset lava colors, with color pull, liquid stretch, tap to split, scroll drift and film grain. See `CLAUDE.md` for how it behaves.
 - Footer: "Made by Shauna." (shauna.dev) plus a line to shauna.digital, on a dark band.
 - Link previews: `og.png` plus Open Graph and Twitter card tags. Saltwhisker has its own preview image (`og.jpg` in its repo, a moonlit pier shot).
@@ -36,6 +36,8 @@ Append new rows. If a row stops being true, mark it superseded rather than delet
 | 2026-10-11 | Phone interactions: tap to split, scroll drift, color pull on scroll. | All work through touch and scroll, so there is no "allow motion" prompt and iPhone and Android behave the same. |
 | 2026-10-11 | Blobs are metaballs on a low-resolution canvas, not an SVG blur filter. | A full-screen SVG blur every frame is too heavy for phones. The canvas runs at about 30 frames a second. |
 | 2026-10-11 | Fonts self-hosted as per-font subsets of only the characters shown (`tools/subset-fonts.py`). | All page text is fixed, so this cut fonts from about 219 KB in 9 files from two Google servers to about 38 KB in 7 files from this site, with no extra connections before the title can draw. Figtree keeps basic Latin so footer edits do not break; Figtree 500 and 600 were dropped because nothing used them. |
+| 2026-10-16 | TropiChop added at `/tropichop`, first with the "New" sticker. Teaser "Chop fruit, dodge slippahs." (219px). Card photo is the game's logo over its beach sunset. Tint `#ff9a1a`. | New game. "Chop fruit, dodge the slippah." was 241px, too wide for the 224px caption. |
+| 2026-10-16 | `og.png` now shows the three newest cards, so 13 Beads drops out of the preview. | The recipe hides the 4th card to keep a single row of three. |
 
 ## Queue
 

@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/tropichop",
+      "destination": "/tropichop/",
+      "permanent": false
+    },
+    {
       "source": "/13-beads",
       "destination": "/13-beads/",
       "permanent": false
@@ -17,6 +22,14 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/tropichop/",
+      "destination": "https://tropichop.vercel.app/"
+    },
+    {
+      "source": "/tropichop/:path*",
+      "destination": "https://tropichop.vercel.app/:path*"
+    },
     {
       "source": "/13-beads/",
       "destination": "https://13-beads.vercel.app/"

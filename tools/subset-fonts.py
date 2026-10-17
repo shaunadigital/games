@@ -21,7 +21,7 @@ FAMILIES = [
     ('Press Start 2P', 'Press+Start+2P', 400, 'press-start-2p-400', 'HOME BEFORE DARK'),
     ('Shantell Sans', 'Shantell+Sans:wght@800', 800, 'shantell-sans-800', 'Saltwhisker'),
     ('Momo Signature', 'Momo+Signature', 400, 'momo-signature-400',
-     "Help Walter catch dinner. Pedal fast, don't look back. Make and trade bracelets. Still developing."),
+     "Chop fruit, dodge slippahs. Help Walter catch dinner. Pedal fast, don't look back. Make and trade bracelets. Still developing."),
     # Body font: footer text plus basic Latin so small copy edits never fall back.
     ('Figtree', 'Figtree:wght@400', 400, 'figtree-400', BASIC),
 ]
