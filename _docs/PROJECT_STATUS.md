@@ -42,6 +42,7 @@ Append new rows. If a row stops being true, mark it superseded rather than delet
 | 2026-10-17 | Saltwhisker, Home Before Dark and 13 Beads cards now show Shauna's new logo over her new background for each game, like TropiChop. Fonts used only by the old card titles (Fredoka, Press Start 2P, Shantell Sans) removed. | Shauna made the art to match the TropiChop card. Logos were cut from their white backgrounds and composed at 600 by 600. |
 | 2026-10-17 | Background is now polaroids clipped to strings of lights on Shauna's cork wall at night. Blobs, film grain and their script removed. | Shauna: the blobs were distracting next to the new card art. She picked the wall from four options (art glow, night sky, calmer blobs, wall). |
 | 2026-10-17 | Layout: 4 across from 1060px, 2 by 2 below that, and on phones (under 700px) one clothesline you swipe sideways with dots. The bulbs near a hovered, focused or centered card glow in that game's color. A tap swings the card before the game opens; on phones a tap on a side card centers it first. | Shauna picked the swipeable clothesline for phones. 4 or 2 columns means no card ever sits alone on a row. |
+| 2026-10-17 | Lights and clips made richer: vintage glass bulbs with metal bases, light pools on the cork, a twisted wire with a shadow, an occasional flicker, color changes that ripple out from the card, and wooden clothespins with a steel spring. | Shauna asked for cooler lights and pins. |
 | 2026-10-17 | `og.png` shows all four cards on the wall. | The 4-across layout fits 1200 by 630. |
 
 ## Queue

@@ -64,10 +64,17 @@
        The strings, bulbs and clips are drawn by the script at the end. The bulbs near a hovered or centered card glow in that game's color. */
     .line { position: relative; }
     .lights { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; z-index: 0; }
+    /* Vintage glass bulbs: colored glass with a white-hot filament core, a ridged metal base, a soft halo, and a pool of light on the cork.
+       Color changes ripple out from the card (--d is each bulb's delay). Now and then one bulb flickers. */
     .bulb { animation: twinkle var(--tw, 4s) ease-in-out var(--td, 0s) infinite alternate; }
-    .bulb .glass, .bulb .halo { fill: var(--c); transition: fill .5s ease; }
-    .bulb .halo { opacity: .45; }
-    @keyframes twinkle { from { opacity: .72; } to { opacity: 1; } }
+    .bulb.flick { animation: flick .8s steps(1, end); }
+    .bulb .glass, .bulb .halo, .pools ellipse { fill: var(--c); transition: fill .55s ease var(--d, 0s), opacity .55s ease var(--d, 0s); }
+    .bulb .halo { opacity: .55; }
+    .bulb.on .halo { opacity: .85; }
+    .pools ellipse { opacity: .18; }
+    .pools ellipse.on { opacity: .4; }
+    @keyframes twinkle { from { opacity: .78; } to { opacity: 1; } }
+    @keyframes flick { 0% { opacity: 1; } 12% { opacity: .25; } 22% { opacity: .9; } 34% { opacity: .35; } 46% { opacity: 1; } 70% { opacity: .6; } 80% { opacity: 1; } }
     .games { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); justify-content: center; gap: 56px 56px; list-style: none; margin: 0; padding: 0; position: relative; z-index: 1; }
     .games > li { width: 100%; padding-top: 34px; }
     @media (min-width: 1060px) {
@@ -76,12 +83,11 @@
     }
     /* Polaroid cards: white frame with a deep blank bottom margin, no caption (Shauna, 2026-10-16). The whole card is the link. Newest game first.
        Each hangs from a wooden clip, swings a little on hover, and swings before the game opens on a tap. */
-    .card { position: relative; display: flex; flex-direction: column; background: var(--photo-paper); color: var(--photo-ink); text-decoration: none; padding: 14px 14px 52px; border-radius: 3px; height: 100%;
+    .card { position: relative; display: flex; flex-direction: column; background: linear-gradient(180deg, #fff3dc, var(--photo-paper) 60px); color: var(--photo-ink); text-decoration: none; padding: 14px 14px 52px; border-radius: 3px; height: 100%;
       transform-origin: 50% -20px; box-shadow: 0 1px 2px rgba(10, 3, 2, .4), 0 14px 30px rgba(10, 3, 2, .5); transition: box-shadow .18s ease; }
-    .card::before { content: ""; position: absolute; left: 50%; top: -22px; width: 12px; height: 36px; margin-left: -6px; border-radius: 3px; z-index: 2;
-      background: linear-gradient(90deg, #d9ad75 0 44%, #8a5a2f 44% 56%, #c99a62 56%); box-shadow: 0 2px 3px rgba(10, 3, 2, .45); }
-    .card::after { content: ""; position: absolute; left: 50%; top: -9px; width: 16px; height: 4px; margin-left: -8px; border-radius: 2px; z-index: 3;
-      background: linear-gradient(#e2e2e2, #8d8d8d); }
+    /* Wooden clothespin with grain and a steel spring, casting a small shadow on the card. */
+    .card::before { content: ""; position: absolute; left: 50%; top: -27px; width: 15px; height: 45px; margin-left: -7.5px; z-index: 2;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 42'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23f3d4a2'/%3E%3Cstop offset='.55' stop-color='%23d6a46a'/%3E%3Cstop offset='1' stop-color='%23b27c44'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23c99459'/%3E%3Cstop offset='.5' stop-color='%23b27e42'/%3E%3Cstop offset='1' stop-color='%238a5a2b'/%3E%3C/linearGradient%3E%3ClinearGradient id='s' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23f6f6f2'/%3E%3Cstop offset='.35' stop-color='%23b9b9b3'/%3E%3Cstop offset='.7' stop-color='%236e6e68'/%3E%3Cstop offset='1' stop-color='%23cfcfc9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='.8' y='0' width='6.2' height='42' rx='2' fill='url(%23a)'/%3E%3Crect x='7' y='0' width='6.2' height='42' rx='2' fill='url(%23b)'/%3E%3Crect x='6.7' y='0' width='.6' height='42' fill='%235a381a' opacity='.75'/%3E%3Cpath d='M2.6 2c.6 6-.5 11 .2 17M4.8 24c-.5 6 .4 11-.2 16M9.2 3c.5 5-.4 10 .2 14M11.4 25c.4 5-.3 10 .1 14' stroke='%236f4520' stroke-width='.45' fill='none' opacity='.35'/%3E%3Crect x='.8' y='13.2' width='12.4' height='1.4' fill='%235a381a' opacity='.35'/%3E%3Crect x='0' y='16.5' width='14' height='7.5' rx='2.6' fill='url(%23s)'/%3E%3Cpath d='M3 17v6.5M5.3 17v6.5M7.7 17v6.5M10 17v6.5M12 17.4v5.8' stroke='%23505049' stroke-width='.6' opacity='.55'/%3E%3Cpath d='M1.4 18.1h11.2' stroke='%23fff' stroke-width='.6' opacity='.7' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat; filter: drop-shadow(0 3px 2px rgba(10, 3, 2, .5)); }
     a.card:hover, a.card:focus-visible { box-shadow: 0 2px 4px rgba(10, 3, 2, .4), 0 22px 44px rgba(10, 3, 2, .55); }
     .card.swing { animation: swing .9s ease-out; }
     @keyframes swing { 0% { transform: rotate(0); } 25% { transform: rotate(2.4deg); } 55% { transform: rotate(-1.6deg); } 80% { transform: rotate(.7deg); } 100% { transform: rotate(0); } }
@@ -116,7 +122,7 @@
     .dots { display: none; }
     @media (max-width: 699px) {
       main { gap: 28px; }
-      .line { margin-inline: calc(-1 * max(20px, env(safe-area-inset-left, 0px))); overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; padding-bottom: 30px; }
+      .line { margin-inline: calc(-1 * max(20px, env(safe-area-inset-left, 0px))); overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; padding: 60px 0 30px; margin-top: -60px; }
       .line::-webkit-scrollbar { display: none; }
       .games { display: flex; width: max-content; gap: 24px; padding-inline: calc(50vw - min(38vw, 170px)); }
       .games > li { width: min(76vw, 340px); flex: none; scroll-snap-align: center; }
@@ -187,15 +193,23 @@
     const keyOf = (a) => { const m = (a.getAttribute('href') || '').match(/[\w-]+/); return m ? m[0] : null; };
     const svg = document.createElementNS(NS, 'svg'); svg.classList.add('lights'); svg.setAttribute('aria-hidden', 'true'); line.prepend(svg);
     const el = (tag, at, parent) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); parent.appendChild(e); return e; };
-    let bulbs = [], tint = null, active = null;
+    let bulbs = [], tint = null, last = null, active = null, cardX = {};
     function layout() {
-      svg.textContent = ''; bulbs = [];
-      const f = el('filter', { id: 'glow', x: '-100%', y: '-100%', width: '300%', height: '300%' }, el('defs', {}, svg));
-      el('feGaussianBlur', { stdDeviation: 7 }, f);
+      svg.textContent = ''; bulbs = []; cardX = {};
+      const defs = el('defs', {}, svg);
+      const blur = (id, sd) => el('feGaussianBlur', { stdDeviation: sd }, el('filter', { id, x: '-150%', y: '-150%', width: '400%', height: '400%' }, defs));
+      blur('glow', 6); blur('soft', 16); blur('core', 1.3); blur('shadow', 2);
+      const lg = (id, stops, at) => { const g = el('linearGradient', Object.assign({ id }, at), defs); stops.forEach(([o, c]) => el('stop', { offset: o, 'stop-color': c }, g)); };
+      lg('metal', [[0, '#5f5a50'], [.3, '#e4e0d4'], [.55, '#9b968a'], [.8, '#cfcabe'], [1, '#55504a']], { x1: 0, x2: 1 });
+      const sh = el('radialGradient', { id: 'shade', cx: .42, cy: .55, r: .62 }, defs);
+      el('stop', { offset: .45, 'stop-color': '#000', 'stop-opacity': 0 }, sh); el('stop', { offset: 1, 'stop-color': '#000', 'stop-opacity': .42 }, sh);
+      const pools = el('g', { class: 'pools', filter: 'url(#soft)' }, svg);
+      const wires = el('g', {}, svg);
       const W = phone.matches ? ul.scrollWidth : line.clientWidth, H = ul.offsetHeight;
+      svg.style.left = ul.offsetLeft + 'px'; svg.style.top = ul.offsetTop + 'px';
       svg.setAttribute('width', W); svg.setAttribute('height', H); svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
       const rows = new Map();
-      for (const a of cards) { const li = a.parentElement; const y = li.offsetTop + 14; const p = { x: li.offsetLeft + li.offsetWidth / 2, y, k: keyOf(a) }; (rows.get(y) || rows.set(y, []).get(y)).push(p); }
+      for (const a of cards) { const li = a.parentElement; const y = li.offsetTop + 14; const p = { x: li.offsetLeft + li.offsetWidth / 2, y, k: keyOf(a) }; cardX[p.k] = p.x; (rows.get(y) || rows.set(y, []).get(y)).push(p); }
       let n = 0;
       for (const [y, pts] of rows) {
         pts.sort((a, b) => a.x - b.x);
@@ -208,7 +222,9 @@
           const C = { x: (A.x + B.x) / 2, y: (A.y + B.y) / 2 + 2 * sag };
           d += ` Q${C.x} ${C.y} ${B.x} ${B.y}`; segs.push([A, C, B, dist]);
         }
-        el('path', { d, fill: 'none', stroke: '#1c130e', 'stroke-width': 2, 'stroke-linecap': 'round' }, svg);
+        el('path', { d, fill: 'none', stroke: 'rgba(8, 2, 0, .55)', 'stroke-width': 3, transform: 'translate(0 6)', filter: 'url(#shadow)' }, wires);
+        el('path', { d, fill: 'none', stroke: '#21170e', 'stroke-width': 2.6, 'stroke-linecap': 'round' }, wires);
+        el('path', { d, fill: 'none', stroke: '#4d3c25', 'stroke-width': 1.1, 'stroke-dasharray': '2.6 3.2', 'stroke-linecap': 'round' }, wires);
         for (const [A, C, B, dist] of segs) {
           const count = Math.max(1, Math.round(dist / 62));
           for (let i = 0; i < count; i++) {
@@ -216,23 +232,41 @@
             const x = v * v * A.x + 2 * u * v * C.x + u * u * B.x, by = v * v * A.y + 2 * u * v * C.y + u * u * B.y;
             if (x < 6 || x > W - 6 || pts.some((p) => Math.abs(p.x - x) < 22)) continue;
             const owner = pts.reduce((m, p) => (Math.abs(p.x - x) < Math.abs(m.x - x) ? p : m), pts[0]);
-            const g = el('g', { class: 'bulb', transform: `translate(${x.toFixed(1)} ${by.toFixed(1)}) rotate(${180 + ((n * 37) % 31) - 15})` }, svg);
+            const pool = el('ellipse', { cx: x.toFixed(1), cy: (by - 10).toFixed(1), rx: 30, ry: 26 }, pools);
+            const g = el('g', { class: 'bulb', transform: `translate(${x.toFixed(1)} ${by.toFixed(1)}) rotate(${((n * 37) % 31) - 15})` }, svg);
             g.style.setProperty('--tw', `${3 + (n * 7) % 4}s`); g.style.setProperty('--td', `${-((n * 13) % 50) / 10}s`);
-            el('circle', { class: 'halo', cx: 0, cy: 14, r: 13, filter: 'url(#glow)' }, g);
-            el('rect', { x: -3.5, y: 0, width: 7, height: 6, rx: 1, fill: '#2b211b' }, g);
-            el('ellipse', { class: 'glass', cx: 0, cy: 14, rx: 5.5, ry: 9 }, g);
-            el('ellipse', { cx: -2, cy: 17, rx: 1.4, ry: 3, fill: '#fff', opacity: .55 }, g);
-            bulbs.push({ g, k: owner.k, warm: WARM[n % WARM.length] }); n++;
+            const tear = 'M-5.6 -8 C-7.8 -13 -7.6 -20 0 -29 C7.6 -20 7.8 -13 5.6 -8 Z';
+            el('circle', { class: 'halo', cx: 0, cy: -17, r: 12, filter: 'url(#glow)' }, g);
+            el('path', { class: 'glass', d: tear }, g);
+            el('path', { d: tear, fill: 'url(#shade)' }, g);
+            el('ellipse', { cx: 0, cy: -14, rx: 1.5, ry: 3, fill: '#fffbea', opacity: .75, filter: 'url(#core)' }, g);
+            el('path', { d: 'M-3.6 -11 C-4.6 -15 -4 -19 -1.6 -23', stroke: '#fff', 'stroke-width': 1.1, fill: 'none', opacity: .55, 'stroke-linecap': 'round' }, g);
+            el('rect', { x: -4, y: -8.6, width: 8, height: 8.6, rx: 1.2, fill: 'url(#metal)' }, g);
+            el('path', { d: 'M-4 -6.2h8M-4 -3.6h8', stroke: '#3b372f', 'stroke-width': .7, opacity: .7 }, g);
+            el('rect', { x: -2.6, y: -.8, width: 5.2, height: 2.4, rx: .8, fill: '#1d150d' }, g);
+            bulbs.push({ g, pool, x, k: owner.k, warm: WARM[n % WARM.length] }); n++;
           }
         }
       }
       paint();
     }
     function paint() {
-      for (const b of bulbs) b.g.style.setProperty('--c', tint && b.k === tint ? TINT[tint] : b.warm);
+      const from = cardX[tint || last];
+      for (const b of bulbs) {
+        const on = !!tint && b.k === tint, c = on ? TINT[tint] : b.warm;
+        const d = reduce || from == null ? '0s' : `${Math.min(.45, Math.abs(b.x - from) / 700).toFixed(2)}s`;
+        for (const e of [b.g, b.pool]) { e.style.setProperty('--c', c); e.style.setProperty('--d', d); }
+        b.g.classList.toggle('on', on); b.pool.classList.toggle('on', on);
+      }
       dots.querySelectorAll('button').forEach((d) => { const on = d.dataset.k === active; d.setAttribute('aria-current', on); d.style.setProperty('--c', TINT[d.dataset.k]); });
     }
-    const setTint = (k) => { if (tint !== k) { tint = k; paint(); } };
+    const setTint = (k) => { if (tint !== k) { last = tint || last; tint = k; paint(); } };
+    // Now and then one bulb flickers, like an old string of lights.
+    if (!reduce) (function flicker() {
+      const b = bulbs[Math.floor(Math.random() * bulbs.length)];
+      if (b && !document.hidden) { b.g.classList.add('flick'); setTimeout(() => b.g.classList.remove('flick'), 820); }
+      setTimeout(flicker, 2200 + Math.random() * 3800);
+    })();
     function swing(a) { if (reduce) return; a.classList.remove('swing'); void a.offsetWidth; a.classList.add('swing'); }
     cards.forEach((a) => {
       a.addEventListener('animationend', () => a.classList.remove('swing'));
