@@ -1,7 +1,7 @@
 """Download tiny subsets of the page's Google Fonts into fonts/ and print the @font-face rules.
 
 Every bit of text on the home page is fixed, so each font only ships the characters it actually shows.
-If you change any visible text (a caption, the tagline, a card title, the footer), add the new text to
+If you change any visible text (the tagline, a card title, the footer), add the new text to
 FAMILIES below, run this script, and paste the printed rules over the @font-face block in index.html.
 
 Run: python3 tools/subset-fonts.py   (from the repository root)
@@ -20,8 +20,6 @@ FAMILIES = [
     ('Fredoka', 'Fredoka:wght@700', 700, 'fredoka-700', '13BEADS'),
     ('Press Start 2P', 'Press+Start+2P', 400, 'press-start-2p-400', 'HOME BEFORE DARK'),
     ('Shantell Sans', 'Shantell+Sans:wght@800', 800, 'shantell-sans-800', 'Saltwhisker'),
-    ('Momo Signature', 'Momo+Signature', 400, 'momo-signature-400',
-     "Chop fruit, dodge slippahs. Help Walter catch dinner. Pedal fast, don't look back. Make and trade bracelets. Still developing."),
     # Body font: footer text plus basic Latin so small copy edits never fall back.
     ('Figtree', 'Figtree:wght@400', 400, 'figtree-400', BASIC),
 ]

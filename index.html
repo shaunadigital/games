@@ -27,7 +27,6 @@
     @font-face { font-family: 'Fredoka'; font-style: normal; font-weight: 700; font-display: swap; src: url(fonts/fredoka-700.woff2) format('woff2'); }
     @font-face { font-family: 'Press Start 2P'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/press-start-2p-400.woff2) format('woff2'); }
     @font-face { font-family: 'Shantell Sans'; font-style: normal; font-weight: 800; font-display: swap; src: url(fonts/shantell-sans-800.woff2) format('woff2'); }
-    @font-face { font-family: 'Momo Signature'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/momo-signature-400.woff2) format('woff2'); }
     @font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/figtree-400.woff2) format('woff2'); }
     :root {
       /* Colors and fonts. The page background is the gooey blobs (see .bg below). One look in light and dark mode. */
@@ -35,7 +34,6 @@
       --ink: #eef7f2; --muted: #b9dcd5; --accent: #ffe7a8;
       --display: 'Fredoka', 'Arial Rounded MT Bold', 'Trebuchet MS', sans-serif;
       --title: 'Syne', 'Arial Black', system-ui, sans-serif;
-      --hand: 'Momo Signature', 'Bradley Hand', 'Segoe Print', cursive;
       --body: 'Figtree', 'Segoe UI', system-ui, sans-serif;
       --photo-paper: #fbfaf6; --photo-ink: #2a2433; --photo-muted: #6b6474;
       color-scheme: dark;
@@ -65,10 +63,10 @@
       45% { opacity: .7; }
     }
     @media (prefers-reduced-motion: reduce) { .tagline, .tagline .tube { animation: none; } }
-    /* Polaroid cards: white frame, deep bottom margin with a handwritten teaser. The whole card is the link. Newest game first. */
+    /* Polaroid cards: white frame with a deep blank bottom margin, no caption (Shauna, 2026-10-16). The whole card is the link. Newest game first. */
     .games { display: grid; grid-template-columns: repeat(auto-fill, minmax(264px, 1fr)); gap: 40px 32px; list-style: none; margin: 0; padding: 0; justify-items: center; }
     .games > li { width: 100%; max-width: 300px; }
-    .card { position: relative; display: flex; flex-direction: column; background: var(--photo-paper); color: var(--photo-ink); text-decoration: none; padding: 14px 14px 0; border-radius: 3px; height: 100%;
+    .card { position: relative; display: flex; flex-direction: column; background: var(--photo-paper); color: var(--photo-ink); text-decoration: none; padding: 14px 14px 52px; border-radius: 3px; height: 100%;
       box-shadow: 0 1px 2px rgba(2, 30, 28, .3), 0 12px 28px rgba(2, 30, 28, .35); transition: transform .18s ease, box-shadow .18s ease; }
     a.card:hover, a.card:focus-visible { transform: translateY(-6px); box-shadow: 0 2px 4px rgba(2, 30, 28, .3), 0 22px 40px rgba(2, 30, 28, .4); }
     .card:focus-visible { outline: 3px solid var(--accent); outline-offset: 6px; }
@@ -93,9 +91,6 @@
       font: 700 16px/1 var(--display); color: #1c1830; background: linear-gradient(#ffffff, #e4dfec);
       box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .14), 0 2px 4px rgba(60, 30, 90, .25); }
     .mark span.dot { width: 13px; border-radius: 5px; background: linear-gradient(#ff8cc6, #d3217c); }
-    .caption { padding: 14px 6px 22px; display: flex; align-items: center; flex: 1; }
-    /* One line, sized so the longest teaser (221px at 14px) fits the narrowest card (264px card, 224px of caption). */
-    .caption p { margin: 0; font: 400 .875rem/1.35 var(--hand); color: var(--photo-ink); white-space: nowrap; }
     .sticker { position: absolute; top: -14px; right: -14px; z-index: 1; width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center;
       background: #e0177d; color: #ffffff; font: 800 .78rem/1 var(--title); letter-spacing: .06em; text-transform: uppercase;
       transform: rotate(12deg); box-shadow: 0 4px 10px rgba(2, 30, 28, .35); }
@@ -117,7 +112,6 @@
     .art-dev::after { content: ""; position: absolute; inset: 0; background: radial-gradient(45% 40% at 55% 50%, rgba(236, 230, 214, .55), transparent 70%); animation: develop 7s ease-in-out infinite alternate; }
     @keyframes develop { from { opacity: .25; } to { opacity: .85; } }
     @media (prefers-reduced-motion: reduce) { .art-dev::after { animation: none; opacity: .5; } }
-    .soon .caption p { color: var(--photo-muted); }
     /* Footer sits on a soft dark band so the light text clears 4.5:1 over any part of the background. */
     footer { font-size: .95rem; }
     footer p { display: inline-block; margin: 0; padding: 9px 16px; border-radius: 18px; color: var(--ink); background: rgba(8, 4, 16, .78); }
@@ -147,41 +141,29 @@
     </header>
     <ul class="games">
       <li>
-        <a class="card" href="/tropichop/" aria-label="TropiChop, new. Chop fruit, dodge slippahs.">
+        <a class="card" href="/tropichop/" aria-label="TropiChop, new game">
           <span class="sticker" aria-hidden="true">New</span>
           <div class="art art-tropi" aria-hidden="true"></div>
-          <div class="caption" aria-hidden="true">
-            <p>Chop fruit, dodge slippahs.</p>
-          </div>
         </a>
       </li>
       <li>
-        <a class="card" href="/saltwhisker/" aria-label="Saltwhisker. Help Walter catch dinner.">
+        <a class="card" href="/saltwhisker/" aria-label="Saltwhisker">
           <div class="art art-salt" aria-hidden="true">
             <p class="salt-title"><span>Salt</span><span>whisker</span></p>
           </div>
-          <div class="caption" aria-hidden="true">
-            <p>Help Walter catch dinner.</p>
-          </div>
         </a>
       </li>
       <li>
-        <a class="card" href="/homebeforedark/" aria-label="Home Before Dark. Pedal fast, don't look back.">
+        <a class="card" href="/homebeforedark/" aria-label="Home Before Dark">
           <div class="art art-night" aria-hidden="true">
             <p class="night-title"><span>HOME</span><span>BEFORE DARK</span></p>
           </div>
-          <div class="caption" aria-hidden="true">
-            <p>Pedal fast, don't look back.</p>
-          </div>
         </a>
       </li>
       <li>
-        <a class="card" href="/13-beads/" aria-label="13 Beads. Make and trade bracelets.">
+        <a class="card" href="/13-beads/" aria-label="13 Beads">
           <div class="art" aria-hidden="true">
             <div class="mark"><span>1</span><span>3</span><span class="dot"></span><span>B</span><span>E</span><span>A</span><span>D</span><span>S</span></div>
-          </div>
-          <div class="caption" aria-hidden="true">
-            <p>Make and trade bracelets.</p>
           </div>
         </a>
       </li>
@@ -189,9 +171,6 @@
       <li class="soon">
         <div class="card" role="img" aria-label="Another game, still developing">
           <div class="art art-dev" aria-hidden="true"></div>
-          <div class="caption" aria-hidden="true">
-            <p>Still developing.</p>
-          </div>
         </div>
       </li>
       -->
