@@ -6,12 +6,12 @@ Last updated 2026-10-16.
 
 All of this is committed to `main` and deployed to https://games.shauna.digital.
 
-- Cards: TropiChop (with a "New" sticker), Saltwhisker, Home Before Dark, 13 Beads, in that order. Straight polaroids with no captions, no Play buttons (the whole card is the link). The "Still developing." card is hidden in an HTML comment.
+- Cards: TropiChop (with a "New" sticker), Saltwhisker, Home Before Dark, 13 Beads, in that order. Straight polaroids with no captions, no Play buttons (the whole card is the link). Each card photo is the game's logo over its background (`img/<path>-card.webp`). The "Still developing." card is hidden in an HTML comment.
 - Background: gooey blobs in the Sunset lava colors, with color pull, liquid stretch, tap to split, scroll drift and film grain. See `CLAUDE.md` for how it behaves.
 - Footer: "Made by Shauna." (shauna.dev) plus a line to shauna.digital, on a dark band.
 - Link previews: `og.png` plus Open Graph and Twitter card tags. Saltwhisker has its own preview image (`og.jpg` in its repo, a moonlit pier shot).
 - All four games link back to the games page (the first three checked 2026-10-11; TropiChop's "More games" link on its menu checked 2026-10-16).
-- Fonts: self-hosted subsets in `fonts/`, about 38 KB in total, no requests to Google.
+- Fonts: self-hosted subsets in `fonts/`, about 13 KB in total (Syne, Neonderthaw, Figtree), no requests to Google.
 - There is no test suite. Changes are checked by rendering the page with Playwright at phone and desktop widths.
 
 ## Decisions
@@ -21,7 +21,7 @@ Append new rows. If a row stops being true, mark it superseded rather than delet
 | Date | Decision | Why |
 |---|---|---|
 | 2026-10-11 | Cards are straight, not tilted. | Shauna's call. It also removed a bug where the Coming soon card's own tilt was overridden by a more specific rule. |
-| 2026-10-11 | 13 Beads card shows the game's full bead wordmark. | Copied from the game's header so the card matches what players see inside the game. |
+| 2026-10-11 (superseded 2026-10-17) | 13 Beads card shows the game's full bead wordmark. | Copied from the game's header so the card matches what players see inside the game. |
 | 2026-10-11 (superseded 2026-10-16) | Captions are teasers only; the game name is in each link's aria-label. | The card art already shows the name. The aria-label keeps the links named for screen readers. |
 | 2026-10-11 (superseded 2026-10-16) | Teasers: "Feed Walter by eight.", "Pedal fast, don't look back.", "Make and trade bracelets." | Chosen by Shauna. Walter is the Saltwhisker cat. |
 | 2026-10-12 (superseded 2026-10-16) | Saltwhisker teaser now "Help Walter catch dinner." | Shauna's pick. The game dropped its eight o'clock dinner deadline. |
@@ -39,13 +39,14 @@ Append new rows. If a row stops being true, mark it superseded rather than delet
 | 2026-10-16 | TropiChop added at `/tropichop`, first with the "New" sticker. Teaser "Chop fruit, dodge slippahs." (219px). Card photo is the game's logo over its beach sunset. Tint `#ff9a1a`. | New game. "Chop fruit, dodge the slippah." was 241px, too wide for the 224px caption. |
 | 2026-10-16 | `og.png` now shows the three newest cards, so 13 Beads drops out of the preview. | The recipe hides the 4th card to keep a single row of three. |
 | 2026-10-16 | All card captions removed; Momo Signature font dropped; cards keep a blank 52px polaroid bottom. | Shauna: the cards look better without captions. |
+| 2026-10-17 | Saltwhisker, Home Before Dark and 13 Beads cards now show Shauna's new logo over her new background for each game, like TropiChop. Fonts used only by the old card titles (Fredoka, Press Start 2P, Shantell Sans) removed. | Shauna made the art to match the TropiChop card. Logos were cut from their white backgrounds and composed at 600 by 600. |
 
 ## Queue
 
 1. Decide with Shauna: on desktop, 13 Beads now sits alone on the second row (4 cards, 3 columns). Options: leave it, or restore the hidden "Still developing." card so the row has two. Asked 2026-10-16, no answer yet.
 2. Check the blobs on an older phone. If it stutters, use one canvas pixel per 4 screen pixels on phones, or fewer droplets.
 3. Tab icon is still the teal polaroid. Ask Shauna whether it should move to the plum and pink palette.
-4. When a game is added: put its card first, move the "New" sticker, add its card title to `tools/subset-fonts.py` if it uses a page font and rebuild the fonts, add its tint color in the background script (`TINT`, keyed by its path), regenerate `og.png`, and update the README tables.
+4. When a game is added: put its card first, move the "New" sticker, add its card image to `img/<path>-card.webp` (its logo over its background, 600 by 600), add its tint color in the background script (`TINT`, keyed by its path), regenerate `og.png`, and update the README tables.
 5. Refresh Saltwhisker's `og.jpg` when its art changes.
 
 ## How to

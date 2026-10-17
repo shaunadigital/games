@@ -17,9 +17,6 @@ BASIC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .,:;!?\'
 FAMILIES = [
     ('Syne', 'Syne:wght@800', 800, 'syne-800', 'Midnights NEW'),
     ('Neonderthaw', 'Neonderthaw', 400, 'neonderthaw-400', 'Little games for late nights.'),
-    ('Fredoka', 'Fredoka:wght@700', 700, 'fredoka-700', '13BEADS'),
-    ('Press Start 2P', 'Press+Start+2P', 400, 'press-start-2p-400', 'HOME BEFORE DARK'),
-    ('Shantell Sans', 'Shantell+Sans:wght@800', 800, 'shantell-sans-800', 'Saltwhisker'),
     # Body font: footer text plus basic Latin so small copy edits never fall back.
     ('Figtree', 'Figtree:wght@400', 400, 'figtree-400', BASIC),
 ]

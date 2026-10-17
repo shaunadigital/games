@@ -24,15 +24,11 @@
     /* Self-hosted font subsets: each file holds only the characters the page shows. Rebuild with tools/subset-fonts.py after changing any visible text. */
     @font-face { font-family: 'Syne'; font-style: normal; font-weight: 800; font-display: swap; src: url(fonts/syne-800.woff2) format('woff2'); }
     @font-face { font-family: 'Neonderthaw'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/neonderthaw-400.woff2) format('woff2'); }
-    @font-face { font-family: 'Fredoka'; font-style: normal; font-weight: 700; font-display: swap; src: url(fonts/fredoka-700.woff2) format('woff2'); }
-    @font-face { font-family: 'Press Start 2P'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/press-start-2p-400.woff2) format('woff2'); }
-    @font-face { font-family: 'Shantell Sans'; font-style: normal; font-weight: 800; font-display: swap; src: url(fonts/shantell-sans-800.woff2) format('woff2'); }
     @font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/figtree-400.woff2) format('woff2'); }
     :root {
       /* Colors and fonts. The page background is the gooey blobs (see .bg below). One look in light and dark mode. */
       --teal: #12968f; --teal-glow: #3fd9c8; --teal-deep: #06433f;
       --ink: #eef7f2; --muted: #b9dcd5; --accent: #ffe7a8;
-      --display: 'Fredoka', 'Arial Rounded MT Bold', 'Trebuchet MS', sans-serif;
       --title: 'Syne', 'Arial Black', system-ui, sans-serif;
       --body: 'Figtree', 'Segoe UI', system-ui, sans-serif;
       --photo-paper: #fbfaf6; --photo-ink: #2a2433; --photo-muted: #6b6474;
@@ -74,36 +70,14 @@
       background:
         radial-gradient(60% 80% at 88% 8%, rgba(255, 244, 190, .85), transparent 70%),
         linear-gradient(135deg, #ff9ec7 0%, #f8b9e2 32%, #c8b6f6 62%, #9fd3ff 100%); }
-    .art-night { background:
-        radial-gradient(1px 1px at 12% 18%, #9a9aa6 99%, transparent), radial-gradient(1px 1px at 27% 62%, #54475e 99%, transparent),
-        radial-gradient(1px 1px at 41% 12%, #e8e8e8 99%, transparent), radial-gradient(1px 1px at 63% 26%, #7a6c80 99%, transparent),
-        radial-gradient(1px 1px at 78% 9%, #9a9aa6 99%, transparent), radial-gradient(1px 1px at 88% 48%, #54475e 99%, transparent),
-        radial-gradient(1px 1px at 8% 82%, #7a6c80 99%, transparent), radial-gradient(1px 1px at 93% 80%, #9a9aa6 99%, transparent),
-        radial-gradient(40% 55% at 50% 118%, rgba(255, 196, 110, .22), transparent 70%),
-        #000; }
-    .night-title { font: 400 18px/1.6 'Press Start 2P', ui-monospace, Menlo, monospace; color: #e6493a; text-align: center; letter-spacing: .04em;
-      text-shadow: 3px 3px 0 #3a0c09; margin: 0; }
-    .night-title span { display: block; }
-    /* 13 Beads: the game's own wordmark, letter beads on a string (1 3, a pink bead, B E A D S). */
-    .mark { position: relative; display: flex; align-items: center; gap: 3px; }
-    .mark::before { content: ""; position: absolute; left: -9px; right: -9px; top: 50%; height: 2px; margin-top: -1px; background: #7f7398; border-radius: 2px; }
-    .mark span { position: relative; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center;
-      font: 700 16px/1 var(--display); color: #1c1830; background: linear-gradient(#ffffff, #e4dfec);
-      box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .14), 0 2px 4px rgba(60, 30, 90, .25); }
-    .mark span.dot { width: 13px; border-radius: 5px; background: linear-gradient(#ff8cc6, #d3217c); }
     .sticker { position: absolute; top: -14px; right: -14px; z-index: 1; width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center;
       background: #e0177d; color: #ffffff; font: 800 .78rem/1 var(--title); letter-spacing: .06em; text-transform: uppercase;
       transform: rotate(12deg); box-shadow: 0 4px 10px rgba(2, 30, 28, .35); }
-    /* TropiChop: the game's own logo over its beach sunset background. */
+    /* Each card photo is the game's own logo over its own background, 600 by 600 (Shauna's art, 2026-10-16 and 2026-10-17). */
     .art-tropi { background: #f2a36b url(img/tropichop-card.webp) center / cover no-repeat; }
-    /* Saltwhisker: soft painted sea and sky, the title in the game's own font and the cat's sou'wester yellow. */
-    .art-salt { overflow: hidden; background:
-        radial-gradient(22% 22% at 74% 30%, rgba(255, 241, 184, .95), rgba(255, 241, 184, 0) 70%),
-        linear-gradient(180deg, #7cc3e4 0%, #b9e4f0 58%, #d9f1f2 64%, #3e93b5 64.5%, #2a7aa0 80%, #1d5f84 100%); }
-    .salt-title { margin: 0; font: 800 clamp(2.1rem, 9vw, 2.6rem)/.95 'Shantell Sans', var(--display); color: #ffcf3a; text-align: center; letter-spacing: -.01em;
-      text-shadow: 0 2px 0 #b07a12, 0 4px 14px rgba(10, 40, 60, .35); transform: rotate(-3deg) translateY(-6%); }
-    .salt-title span { display: block; }
-    .salt-title span + span { margin-left: .6em; }
+    .art-salt { background: #e9955a url(img/saltwhisker-card.webp) center / cover no-repeat; }
+    .art-night { background: #1b1838 url(img/homebeforedark-card.webp) center / cover no-repeat; }
+    .art-beads { background: #3a1830 url(img/13-beads-card.webp) center / cover no-repeat; }
     /* The next game: an instant photo still developing, a slow fog that brightens and fades. */
     .art-dev { overflow: hidden; background:
         radial-gradient(55% 45% at 40% 38%, rgba(214, 206, 186, .75), transparent 70%),
@@ -148,23 +122,17 @@
       </li>
       <li>
         <a class="card" href="/saltwhisker/" aria-label="Saltwhisker">
-          <div class="art art-salt" aria-hidden="true">
-            <p class="salt-title"><span>Salt</span><span>whisker</span></p>
-          </div>
+          <div class="art art-salt" aria-hidden="true"></div>
         </a>
       </li>
       <li>
         <a class="card" href="/homebeforedark/" aria-label="Home Before Dark">
-          <div class="art art-night" aria-hidden="true">
-            <p class="night-title"><span>HOME</span><span>BEFORE DARK</span></p>
-          </div>
+          <div class="art art-night" aria-hidden="true"></div>
         </a>
       </li>
       <li>
         <a class="card" href="/13-beads/" aria-label="13 Beads">
-          <div class="art" aria-hidden="true">
-            <div class="mark"><span>1</span><span>3</span><span class="dot"></span><span>B</span><span>E</span><span>A</span><span>D</span><span>S</span></div>
-          </div>
+          <div class="art art-beads" aria-hidden="true"></div>
         </a>
       </li>
       <!-- Hidden 2026-10-11 (Shauna). Restore this card to tease the next game.
