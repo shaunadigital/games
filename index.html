@@ -101,6 +101,7 @@
       background: #e0177d; color: #ffffff; font: 800 .78rem/1 var(--title); letter-spacing: .06em; text-transform: uppercase;
       transform: rotate(12deg); box-shadow: 0 4px 10px rgba(2, 30, 28, .35); }
     /* Each card photo is the game's own logo over its own background, 600 by 600 (Shauna's art, 2026-10-16 and 2026-10-17). */
+    .art-shore { background: #3fc6d8 url(img/shoreline-card.webp) center / cover no-repeat; }
     .art-tropi { background: #f2a36b url(img/tropichop-card.webp) center / cover no-repeat; }
     .art-salt { background: #e9955a url(img/saltwhisker-card.webp) center / cover no-repeat; }
     .art-night { background: #1b1838 url(img/homebeforedark-card.webp) center / cover no-repeat; }
@@ -151,8 +152,13 @@
     <div class="line">
       <ul class="games">
         <li>
-          <a class="card" href="/tropichop/" aria-label="TropiChop, new game">
+          <a class="card" href="/shoreline/" aria-label="Shoreline, new game">
             <span class="sticker" aria-hidden="true">New</span>
+            <div class="art art-shore" aria-hidden="true"></div>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="/tropichop/" aria-label="TropiChop">
             <div class="art art-tropi" aria-hidden="true"></div>
           </a>
         </li>
@@ -171,13 +177,14 @@
             <div class="art art-beads" aria-hidden="true"></div>
           </a>
         </li>
-        <!-- Teaser for the next game (restored 2026-10-25, Shauna). Remove or swap for the real card when it launches. -->
+        <!-- Teaser for the next game, swapped out when Shoreline launched (2026-10-25). Paste it back as the last item to restore it:
         <li class="soon">
           <div class="card" role="img" data-k="soon" aria-label="Another game, still developing">
             <div class="art art-dev" aria-hidden="true"></div>
             <span class="dev-note" aria-hidden="true">Still developing.</span>
           </div>
         </li>
+        -->
       </ul>
     </div>
     <div class="dots" role="group" aria-label="Choose a game"></div>
@@ -191,7 +198,7 @@
     const cards = [...ul.querySelectorAll('.card')];
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const phone = matchMedia('(max-width: 699px)');
-    const TINT = { tropichop: '#ff9a1a', saltwhisker: '#ffcf3a', homebeforedark: '#e6493a', '13-beads': '#ff5fae', soon: '#e8e0cc' };
+    const TINT = { shoreline: '#2fd3c4', tropichop: '#ff9a1a', saltwhisker: '#ffcf3a', homebeforedark: '#e6493a', '13-beads': '#ff5fae', soon: '#e8e0cc' };
     const WARM = ['#ffd58a', '#ffc56b', '#ffe2a8'];
     const keyOf = (a) => { if (a.dataset.k) return a.dataset.k; const m = (a.getAttribute('href') || '').match(/[\w-]+/); return m ? m[0] : null; };
     const svg = document.createElementNS(NS, 'svg'); svg.classList.add('lights'); svg.setAttribute('aria-hidden', 'true'); line.prepend(svg);

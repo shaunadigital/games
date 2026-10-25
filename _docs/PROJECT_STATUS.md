@@ -6,7 +6,7 @@ Last updated 2026-10-25.
 
 All of this is committed to `main` and deployed to https://games.shauna.digital.
 
-- Cards: TropiChop (with a "New" sticker), Saltwhisker, Home Before Dark, 13 Beads, in that order. Straight polaroids with no captions, no Play buttons (the whole card is the link). Each card photo is the game's logo over its background (`img/<path>-card.webp`). The "Still developing." teaser card hangs last (restored 2026-10-25): 5 across on wide screens, 3 plus 2 centered on medium, one more swipe stop on phones.
+- Cards: Shoreline (with a "New" sticker), TropiChop, Saltwhisker, Home Before Dark, 13 Beads, in that order. Straight polaroids with no captions, no Play buttons (the whole card is the link). Each card photo is the game's logo over its background (`img/<path>-card.webp`). 5 across on wide screens, 3 plus 2 centered on medium, a swipeable clothesline on phones. The "Still developing." teaser was swapped out for Shoreline (2026-10-25) and is kept in an HTML comment.
 - Background: Shauna's cork wall at night (`img/wall.webp`), with the cards clipped to strings of lights. Five across on wide screens, 3 plus 2 centered on medium screens, a swipeable clothesline with dots on phones. See `CLAUDE.md` for how it behaves.
 - Title "Midnights" and the neon tagline were made about a third smaller on 2026-10-25.
 - `og.png` still shows the four game cards only (no teaser); that is fine until the next card lands.
@@ -49,15 +49,15 @@ Append new rows. If a row stops being true, mark it superseded rather than delet
 | 2026-10-25 | "Still developing." teaser card restored, last on the line. Layout is now 5 across from 1060px and 3 plus 2 centered below that (flex wrap instead of grid). | Shauna wanted to tease the next game; the new column counts avoid one card alone on a row. |
 | 2026-10-25 | The teaser card says "Still developing." in handwriting in its bottom strip. | Shauna: a blank fogged photo did not explain itself. Real game cards stay captionless. |
 | 2026-10-25 | Title and tagline about a third smaller (title max 3.2rem, tagline max 1.75rem). | Shauna: they were too large and pushed the cards down. |
-| 2026-10-25 | Shoreline mounted at `/shoreline` (repo `shaunadigital/shoreline`, forwards to `https://shoreline-psi.vercel.app`). No card on the home page yet. | The route went live first; the card waits for Shauna's card art (`img/shoreline-card.webp`) and her call on whether the teaser stays. |
+| 2026-10-25 | Shoreline mounted at `/shoreline` (repo `shaunadigital/shoreline`, forwards to `https://shoreline-psi.vercel.app`). | Route went live first while the game was built. |
+| 2026-10-25 | Shoreline card added first with the "New" sticker (moved from TropiChop). Photo is Shauna's logo over her sunny lagoon background, a bright midday scene so it does not blend with TropiChop's sunset. Bulb tint teal `#2fd3c4` (TropiChop is orange). The "Still developing." teaser swapped out per the standing rule, kept in an HTML comment. `og.png` regenerated with all five cards. | New game. |
 
 ## Queue
 
-1. Add the Shoreline card once Shauna's art is ready: first in the list with the "New" sticker, `img/shoreline-card.webp`, a `TINT` color, `og.png` regenerated. Decide whether it replaces the "Still developing." teaser (5 cards) or the teaser stays (6 cards: recheck the layouts).
-2. When the next game launches, replace the "Still developing." teaser with its card (and decide whether to keep a teaser, which makes 6 cards: recheck the 5-across and 3 plus 2 layouts).
-3. Tab icon is still the teal polaroid. Ask Shauna whether it should move to the plum and pink palette.
-4. When a game is added: put its card first, move the "New" sticker, add its card image to `img/<path>-card.webp` (its logo over its background, 600 by 600), add its bulb color in the script (`TINT`, keyed by its path), check the column counts still leave no card alone on a row, regenerate `og.png`, and update the README tables.
-5. Refresh Saltwhisker's `og.jpg` when its art changes.
+1. Shauna to decide whether to bring the "Still developing." teaser back (6 cards: recheck the 5-across and 3 plus 2 layouts first). Markup is in the HTML comment at the end of the card list.
+2. Tab icon is still the teal polaroid. Ask Shauna whether it should move to the plum and pink palette.
+3. When a game is added: put its card first, move the "New" sticker, add its card image to `img/<path>-card.webp` (its logo over its background, 600 by 600), add its bulb color in the script (`TINT`, keyed by its path), check the column counts still leave no card alone on a row, regenerate `og.png`, and update the README tables.
+4. Refresh Saltwhisker's `og.jpg` when its art changes.
 
 ## How to
 
