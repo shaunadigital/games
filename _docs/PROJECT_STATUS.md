@@ -6,7 +6,7 @@ Last updated 2026-10-17.
 
 All of this is committed to `main` and deployed to https://games.shauna.digital.
 
-- Cards: TropiChop (with a "New" sticker), Saltwhisker, Home Before Dark, 13 Beads, in that order. Straight polaroids with no captions, no Play buttons (the whole card is the link). Each card photo is the game's logo over its background (`img/<path>-card.webp`). The "Still developing." card is hidden in an HTML comment.
+- Cards: TropiChop (with a "New" sticker), Saltwhisker, Home Before Dark, 13 Beads, in that order. Straight polaroids with no captions, no Play buttons (the whole card is the link). Each card photo is the game's logo over its background (`img/<path>-card.webp`). The "Still developing." teaser card hangs last (restored 2026-10-25): 5 across on wide screens, 3 plus 2 centered on medium, one more swipe stop on phones.
 - Background: Shauna's cork wall at night (`img/wall.webp`), with the cards clipped to strings of lights. Four across on wide screens, two rows of two on medium screens, a swipeable clothesline with dots on phones. See `CLAUDE.md` for how it behaves.
 - Footer: "Made by Shauna." (shauna.dev) plus a line to shauna.digital, on a dark band.
 - Link previews: `og.png` plus Open Graph and Twitter card tags. Saltwhisker has its own preview image (`og.jpg` in its repo, a moonlit pier shot).
@@ -44,11 +44,12 @@ Append new rows. If a row stops being true, mark it superseded rather than delet
 | 2026-10-17 | Layout: 4 across from 1060px, 2 by 2 below that, and on phones (under 700px) one clothesline you swipe sideways with dots. The bulbs near a hovered, focused or centered card glow in that game's color. A tap swings the card before the game opens; on phones a tap on a side card centers it first. | Shauna picked the swipeable clothesline for phones. 4 or 2 columns means no card ever sits alone on a row. |
 | 2026-10-17 | Lights and clips made richer: vintage glass bulbs with metal bases, light pools on the cork, a twisted wire with a shadow, an occasional flicker, color changes that ripple out from the card, and wooden clothespins with a steel spring. | Shauna asked for cooler lights and pins. |
 | 2026-10-17 | `og.png` shows all four cards on the wall. | The 4-across layout fits 1200 by 630. |
+| 2026-10-25 | "Still developing." teaser card restored, last on the line. Layout is now 5 across from 1060px and 3 plus 2 centered below that (flex wrap instead of grid). | Shauna wanted to tease the next game; the new column counts avoid one card alone on a row. |
 | 2026-10-25 | Title and tagline about a third smaller (title max 3.2rem, tagline max 1.75rem). | Shauna: they were too large and pushed the cards down. |
 
 ## Queue
 
-1. Restoring the hidden "Still developing." card would make 5 cards, which leaves one alone on a row in the 4-across and 2 by 2 layouts. Adjust the column counts if it comes back.
+1. When the next game launches, replace the "Still developing." teaser with its card (and decide whether to keep a teaser, which makes 6 cards: recheck the 5-across and 3 plus 2 layouts).
 2. Tab icon is still the teal polaroid. Ask Shauna whether it should move to the plum and pink palette.
 3. When a game is added: put its card first, move the "New" sticker, add its card image to `img/<path>-card.webp` (its logo over its background, 600 by 600), add its bulb color in the script (`TINT`, keyed by its path), check the column counts still leave no card alone on a row, regenerate `og.png`, and update the README tables.
 4. Refresh Saltwhisker's `og.jpg` when its art changes.

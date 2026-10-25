@@ -60,7 +60,7 @@
     }
     @media (prefers-reduced-motion: reduce) { .tagline, .tagline .tube { animation: none; } }
     /* The wall (Shauna, 2026-10-17): polaroids clipped to strings of lights on her cork wall at night.
-       Wide screens: 4 cards on one string. Medium: 2 rows of 2. Phones (under 700px): one clothesline you swipe, with dots below.
+       Wide screens: all 5 cards (4 games plus the "still developing" teaser) on one string. Medium: 3 on top, 2 centered below. Phones (under 700px): one clothesline you swipe, with dots below.
        The strings, bulbs and clips are drawn by the script at the end. The bulbs near a hovered or centered card glow in that game's color. */
     .line { position: relative; }
     .lights { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; z-index: 0; }
@@ -75,11 +75,12 @@
     .pools ellipse.on { opacity: .4; }
     @keyframes twinkle { from { opacity: .78; } to { opacity: 1; } }
     @keyframes flick { 0% { opacity: 1; } 12% { opacity: .25; } 22% { opacity: .9; } 34% { opacity: .35; } 46% { opacity: 1; } 70% { opacity: .6; } 80% { opacity: 1; } }
-    .games { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); justify-content: center; gap: 56px 56px; list-style: none; margin: 0; padding: 0; position: relative; z-index: 1; }
-    .games > li { width: 100%; padding-top: 34px; }
+    .games { display: flex; flex-wrap: wrap; justify-content: center; gap: 56px 40px; list-style: none; margin: 0; padding: 0; position: relative; z-index: 1; }
+    .games > li { width: min(260px, calc((100% - 80px) / 3)); padding-top: 34px; }
     @media (min-width: 1060px) {
-      main { max-width: 1120px; }
-      .games { grid-template-columns: repeat(4, minmax(0, 260px)); gap: 56px 40px; }
+      main { max-width: 1200px; }
+      .games { gap: 56px 32px; }
+      .games > li { width: min(240px, calc((100% - 128px) / 5)); }
     }
     /* Polaroid cards: white frame with a deep blank bottom margin, no caption (Shauna, 2026-10-16). The whole card is the link. Newest game first.
        Each hangs from a wooden clip, swings a little on hover, and swings before the game opens on a tap. */
@@ -124,7 +125,7 @@
       main { gap: 28px; }
       .line { margin-inline: calc(-1 * max(20px, env(safe-area-inset-left, 0px))); overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; padding: 60px 0 30px; margin-top: -60px; }
       .line::-webkit-scrollbar { display: none; }
-      .games { display: flex; width: max-content; gap: 24px; padding-inline: calc(50vw - min(38vw, 170px)); }
+      .games { display: flex; flex-wrap: nowrap; width: max-content; gap: 24px; padding-inline: calc(50vw - min(38vw, 170px)); }
       .games > li { width: min(76vw, 340px); flex: none; scroll-snap-align: center; }
       .dots { display: flex; justify-content: center; gap: 4px; margin-top: -26px; }
       .dots button { width: 30px; height: 30px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
@@ -168,13 +169,12 @@
             <div class="art art-beads" aria-hidden="true"></div>
           </a>
         </li>
-        <!-- Hidden 2026-10-11 (Shauna). Restore this card to tease the next game.
+        <!-- Teaser for the next game (restored 2026-10-25, Shauna). Remove or swap for the real card when it launches. -->
         <li class="soon">
-          <div class="card" role="img" aria-label="Another game, still developing">
+          <div class="card" role="img" data-k="soon" aria-label="Another game, still developing">
             <div class="art art-dev" aria-hidden="true"></div>
           </div>
         </li>
-        -->
       </ul>
     </div>
     <div class="dots" role="group" aria-label="Choose a game"></div>
@@ -185,12 +185,12 @@
     // Strings of lights between the card clips, one string per row, redrawn whenever the layout changes.
     const NS = 'http://www.w3.org/2000/svg';
     const line = document.querySelector('.line'), ul = line.querySelector('.games'), dots = document.querySelector('.dots');
-    const cards = [...ul.querySelectorAll('a.card')];
+    const cards = [...ul.querySelectorAll('.card')];
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const phone = matchMedia('(max-width: 699px)');
-    const TINT = { tropichop: '#ff9a1a', saltwhisker: '#ffcf3a', homebeforedark: '#e6493a', '13-beads': '#ff5fae' };
+    const TINT = { tropichop: '#ff9a1a', saltwhisker: '#ffcf3a', homebeforedark: '#e6493a', '13-beads': '#ff5fae', soon: '#e8e0cc' };
     const WARM = ['#ffd58a', '#ffc56b', '#ffe2a8'];
-    const keyOf = (a) => { const m = (a.getAttribute('href') || '').match(/[\w-]+/); return m ? m[0] : null; };
+    const keyOf = (a) => { if (a.dataset.k) return a.dataset.k; const m = (a.getAttribute('href') || '').match(/[\w-]+/); return m ? m[0] : null; };
     const svg = document.createElementNS(NS, 'svg'); svg.classList.add('lights'); svg.setAttribute('aria-hidden', 'true'); line.prepend(svg);
     const el = (tag, at, parent) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); parent.appendChild(e); return e; };
     let bulbs = [], tint = null, last = null, active = null, cardX = {};
@@ -277,6 +277,7 @@
       a.addEventListener('click', (e) => {
         if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
         if (phone.matches && keyOf(a) !== active) { e.preventDefault(); center(a); return; }
+        if (!a.href) { swing(a); return; }
         if (reduce) return;
         e.preventDefault(); swing(a); setTimeout(() => { location.href = a.href; }, 320);
       });
