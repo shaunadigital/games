@@ -16,7 +16,7 @@ BASIC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .,:;!?\'
 # css family name, Google Fonts family spec, weight, file name, characters to keep
 FAMILIES = [
     ('Syne', 'Syne:wght@800', 800, 'syne-800', 'Midnights NEW'),
-    ('Neonderthaw', 'Neonderthaw', 400, 'neonderthaw-400', 'Little games for late nights.'),
+    ('Neonderthaw', 'Neonderthaw', 400, 'neonderthaw-400', 'Little games for late nights. Still developing.'),
     # Body font: footer text plus basic Latin so small copy edits never fall back.
     ('Figtree', 'Figtree:wght@400', 400, 'figtree-400', BASIC),
 ]

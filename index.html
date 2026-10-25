@@ -111,6 +111,8 @@
         radial-gradient(60% 50% at 72% 78%, rgba(150, 160, 140, .5), transparent 70%),
         linear-gradient(160deg, #6f6a5e, #3f3c36 75%); }
     .art-dev::after { content: ""; position: absolute; inset: 0; background: radial-gradient(45% 40% at 55% 50%, rgba(236, 230, 214, .55), transparent 70%); animation: develop 7s ease-in-out infinite alternate; }
+    /* Handwritten note in the blank bottom strip, like pen on a real instant photo. */
+    .dev-note { position: absolute; left: 0; right: 0; bottom: 8px; text-align: center; font: 400 1.7rem/1 'Neonderthaw', 'Brush Script MT', cursive; color: #2a1d12; -webkit-text-stroke: .4px #2a1d12; transform: rotate(-2deg); }
     @keyframes develop { from { opacity: .25; } to { opacity: .85; } }
     @media (prefers-reduced-motion: reduce) { .art-dev::after { animation: none; opacity: .5; } }
     /* Footer sits on a soft dark band so the light text clears 4.5:1 over any part of the background. */
@@ -173,6 +175,7 @@
         <li class="soon">
           <div class="card" role="img" data-k="soon" aria-label="Another game, still developing">
             <div class="art art-dev" aria-hidden="true"></div>
+            <span class="dev-note" aria-hidden="true">Still developing.</span>
           </div>
         </li>
       </ul>

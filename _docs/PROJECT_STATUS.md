@@ -45,6 +45,7 @@ Append new rows. If a row stops being true, mark it superseded rather than delet
 | 2026-10-17 | Lights and clips made richer: vintage glass bulbs with metal bases, light pools on the cork, a twisted wire with a shadow, an occasional flicker, color changes that ripple out from the card, and wooden clothespins with a steel spring. | Shauna asked for cooler lights and pins. |
 | 2026-10-17 | `og.png` shows all four cards on the wall. | The 4-across layout fits 1200 by 630. |
 | 2026-10-25 | "Still developing." teaser card restored, last on the line. Layout is now 5 across from 1060px and 3 plus 2 centered below that (flex wrap instead of grid). | Shauna wanted to tease the next game; the new column counts avoid one card alone on a row. |
+| 2026-10-25 | The teaser card says "Still developing." in handwriting in its bottom strip. | Shauna: a blank fogged photo did not explain itself. Real game cards stay captionless. |
 | 2026-10-25 | Title and tagline about a third smaller (title max 3.2rem, tagline max 1.75rem). | Shauna: they were too large and pushed the cards down. |
 | 2026-10-25 | Shoreline mounted at `/shoreline` (repo `shaunadigital/shoreline`, forwards to `https://shoreline-psi.vercel.app`). No card on the home page yet. | The route went live first; the card waits for Shauna's card art (`img/shoreline-card.webp`) and her call on whether the teaser stays. |
 
