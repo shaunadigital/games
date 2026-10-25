@@ -19,6 +19,11 @@
       "source": "/saltwhisker",
       "destination": "/saltwhisker/",
       "permanent": false
+    },
+    {
+      "source": "/shoreline",
+      "destination": "/shoreline/",
+      "permanent": false
     }
   ],
   "rewrites": [
@@ -53,6 +58,14 @@
     {
       "source": "/saltwhisker/:path*",
       "destination": "https://saltwhisker.vercel.app/:path*"
+    },
+    {
+      "source": "/shoreline/",
+      "destination": "https://shoreline-psi.vercel.app/"
+    },
+    {
+      "source": "/shoreline/:path*",
+      "destination": "https://shoreline-psi.vercel.app/:path*"
     }
   ]
 }

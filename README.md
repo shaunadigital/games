@@ -12,6 +12,7 @@ Little browser games for late nights. This repository is the home page that ties
 | [13 Beads](https://games.shauna.digital/13-beads/) | String a friendship bracelet in 3D, spell a phrase, and hang it on your wall. ([repo](https://github.com/shaunagits/13-beads)) |
 | [Home Before Dark](https://games.shauna.digital/homebeforedark/) | Pedal fast. Don't look back. |
 | [Saltwhisker](https://games.shauna.digital/saltwhisker/) | Walter, a tuxedo cat in a yellow sou'wester, fishes off a pier for his dinner. ([repo](https://github.com/shaunagits/saltwhisker)) |
+| [Shoreline](https://games.shauna.digital/shoreline/) | Drive an off-roader around a tiny tropical island, bowl with tiki pins and hunt for shells. ([repo](https://github.com/shaunadigital/shoreline)) |
 
 ## How it is set up
 
@@ -28,6 +29,7 @@ Little browser games for late nights. This repository is the home page that ties
 | `/13-beads` | `shaunagits/13-beads` | `13-beads` | `https://13-beads.vercel.app` |
 | `/homebeforedark` | `shaunagits/homebeforedark` | `homebeforedark` | `https://homebeforedark.vercel.app` |
 | `/saltwhisker` | `shaunagits/saltwhisker` | `saltwhisker` | `https://saltwhisker.vercel.app` |
+| `/shoreline` | `shaunadigital/shoreline` | `shoreline` | `https://shoreline-psi.vercel.app` (the plain `shoreline.vercel.app` name was taken) |
 
 ## Add a game
 
