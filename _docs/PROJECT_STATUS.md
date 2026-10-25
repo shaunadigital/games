@@ -7,7 +7,9 @@ Last updated 2026-10-25.
 All of this is committed to `main` and deployed to https://games.shauna.digital.
 
 - Cards: TropiChop (with a "New" sticker), Saltwhisker, Home Before Dark, 13 Beads, in that order. Straight polaroids with no captions, no Play buttons (the whole card is the link). Each card photo is the game's logo over its background (`img/<path>-card.webp`). The "Still developing." teaser card hangs last (restored 2026-10-25): 5 across on wide screens, 3 plus 2 centered on medium, one more swipe stop on phones.
-- Background: Shauna's cork wall at night (`img/wall.webp`), with the cards clipped to strings of lights. Four across on wide screens, two rows of two on medium screens, a swipeable clothesline with dots on phones. See `CLAUDE.md` for how it behaves.
+- Background: Shauna's cork wall at night (`img/wall.webp`), with the cards clipped to strings of lights. Five across on wide screens, 3 plus 2 centered on medium screens, a swipeable clothesline with dots on phones. See `CLAUDE.md` for how it behaves.
+- Title "Midnights" and the neon tagline were made about a third smaller on 2026-10-25.
+- `og.png` still shows the four game cards only (no teaser); that is fine until the next card lands.
 - Footer: "Made by Shauna." (shauna.dev) plus a line to shauna.digital, on a dark band.
 - Link previews: `og.png` plus Open Graph and Twitter card tags. Saltwhisker has its own preview image (`og.jpg` in its repo, a moonlit pier shot).
 - All four games link back to the games page (the first three checked 2026-10-11; TropiChop's "More games" link on its menu checked 2026-10-16).
@@ -28,7 +30,7 @@ Append new rows. If a row stops being true, mark it superseded rather than delet
 | 2026-10-11 (superseded 2026-10-16) | Caption font is Momo Signature at 14px, one line, with cards at least 264px wide. | Shauna picked it from fonts Google added in 2025 and 2026 (Caveat was too common; Edu SA Hand was tried first). The longest teaser is 221px at 14px and must fit the 224px caption on the narrowest card, so the grid minimum went from 250px to 264px. |
 | 2026-10-11 | No Play buttons. | A Play label beside the caption forced captions onto two lines; it moved to a pill on the photo, then Shauna removed it as unneeded because the whole card is the link. |
 | 2026-10-11 | Newest game first, with a pink "New" sticker. | Marketing review: gives returning visitors a reason to look again. Move the sticker when a game is added. |
-| 2026-10-11 | "Still developing." card hidden, kept in an HTML comment. | On desktop it sat alone on the second row. Kept so it can tease the next game. |
+| 2026-10-11 (superseded 2026-10-25) | "Still developing." card hidden, kept in an HTML comment. | On desktop it sat alone on the second row. Kept so it can tease the next game. |
 | 2026-10-11 | Footer on a dark band, with a line to shauna.digital. | The old light-on-teal footer was about 2.7:1 contrast. The marketing review suggested one quiet line to the business, not a sales pitch. |
 | 2026-10-11 | Link preview images for the games page and Saltwhisker. | Shared links to both showed as bare text. |
 | 2026-10-11 | Not done from the marketing review: a plain line under the tagline, and a "what kind of game" line per card. | Shauna did not pick them. |
