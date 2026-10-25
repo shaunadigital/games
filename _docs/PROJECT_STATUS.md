@@ -44,6 +44,7 @@ Append new rows. If a row stops being true, mark it superseded rather than delet
 | 2026-10-17 | Layout: 4 across from 1060px, 2 by 2 below that, and on phones (under 700px) one clothesline you swipe sideways with dots. The bulbs near a hovered, focused or centered card glow in that game's color. A tap swings the card before the game opens; on phones a tap on a side card centers it first. | Shauna picked the swipeable clothesline for phones. 4 or 2 columns means no card ever sits alone on a row. |
 | 2026-10-17 | Lights and clips made richer: vintage glass bulbs with metal bases, light pools on the cork, a twisted wire with a shadow, an occasional flicker, color changes that ripple out from the card, and wooden clothespins with a steel spring. | Shauna asked for cooler lights and pins. |
 | 2026-10-17 | `og.png` shows all four cards on the wall. | The 4-across layout fits 1200 by 630. |
+| 2026-10-25 | Title and tagline about a third smaller (title max 3.2rem, tagline max 1.75rem). | Shauna: they were too large and pushed the cards down. |
 
 ## Queue
 
