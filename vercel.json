@@ -1,6 +1,17 @@
 {
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "games.shauna.digital"
+        }
+      ],
+      "destination": "https://shauna.digital/games/:path*",
+      "permanent": true
+    },
+    {
       "source": "/tropichop",
       "destination": "/tropichop/",
       "permanent": false
