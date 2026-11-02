@@ -2,19 +2,21 @@
 
 Little browser games for late nights. This repository is the home page that ties them together.
 
-**▶ Play: [games.shauna.digital](https://games.shauna.digital)**
+**▶ Play: [shauna.digital/games](https://shauna.digital/games/)**
 
 ![The games home page](.github/screenshot.jpg)
 
 | Game | What it is |
 |---|---|
-| [Shoreline](https://games.shauna.digital/shoreline/) | Drive an off-roader around a tiny tropical island, bowl with tiki pins and hunt for shells. ([repo](https://github.com/shaunadigital/shoreline)) |
-| [TropiChop](https://games.shauna.digital/tropichop/) | Chop flying Hawaiian fruit and dodge Aunty's slippah and the wana. ([repo](https://github.com/shaunagits/tropichop)) |
-| [13 Beads](https://games.shauna.digital/13-beads/) | String a friendship bracelet in 3D, spell a phrase, and hang it on your wall. ([repo](https://github.com/shaunagits/13-beads)) |
-| [Home Before Dark](https://games.shauna.digital/homebeforedark/) | Pedal fast. Don't look back. |
-| [Saltwhisker](https://games.shauna.digital/saltwhisker/) | Walter, a tuxedo cat in a yellow sou'wester, fishes off a pier for his dinner. ([repo](https://github.com/shaunagits/saltwhisker)) |
+| [Shoreline](https://shauna.digital/games/shoreline/) | Drive an off-roader around a tiny tropical island, bowl with tiki pins and hunt for shells. ([repo](https://github.com/shaunadigital/shoreline)) |
+| [TropiChop](https://shauna.digital/games/tropichop/) | Chop flying Hawaiian fruit and dodge Aunty's slippah and the wana. ([repo](https://github.com/shaunagits/tropichop)) |
+| [13 Beads](https://shauna.digital/games/13-beads/) | String a friendship bracelet in 3D, spell a phrase, and hang it on your wall. ([repo](https://github.com/shaunagits/13-beads)) |
+| [Home Before Dark](https://shauna.digital/games/homebeforedark/) | Pedal fast. Don't look back. |
+| [Saltwhisker](https://shauna.digital/games/saltwhisker/) | Walter, a tuxedo cat in a yellow sou'wester, fishes off a pier for his dinner. ([repo](https://github.com/shaunagits/saltwhisker)) |
 
 ## How it is set up
+
+- **Since 2026-11-02 the public address is `shauna.digital/games/<game>/`** (Shauna: `games.shauna.digital` was hard to type; browsers often searched for it). The shauna.digital Netlify site shows each game straight from its own Vercel project (rules in that repo's `netlify.toml`), and `/games/` shows this page from `games-lac-rho.vercel.app`. `games.shauna.digital` now redirects every path to the same path under `shauna.digital/games/` (first rule in `vercel.json`). The rewrites below are kept but only matter if that redirect is removed. To add a game, also add its rule to shauna.digital's `netlify.toml`. Shauna may remove this Midnights page later and link to each game on its own.
 
 - This repository is a plain static site: `index.html` plus `vercel.json`. There is no build step and no framework.
 - Hosting: Vercel project `games` (team `shaunagits-projects`), deployed automatically from the `main` branch. Pushing to `main` updates the live site.

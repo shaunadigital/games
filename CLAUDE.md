@@ -1,6 +1,6 @@
 # Games
 
-The home page for https://games.shauna.digital. Read `README.md`: it explains the hosting, the domain, how games are mounted under a path, and how to add one. Then `_docs/PROJECT_STATUS.md` for what is live, the decisions and why, and what is next.
+The Midnights page, now shown at https://shauna.digital/games/ (games.shauna.digital redirects there since 2026-11-02; see README). Read `README.md`: it explains the hosting, the domain, how games are mounted under a path, and how to add one. Then `_docs/PROJECT_STATUS.md` for what is live, the decisions and why, and what is next.
 
 - Plain static site: `index.html`, `vercel.json`, `og.png` and `fonts/`. No build step.
 - Fonts are self-hosted subsets in `fonts/` (about 13 KB for all three (Momo Signature removed with the captions 2026-10-16; Fredoka, Press Start 2P and Shantell Sans removed 2026-10-17 when the card titles became images), down from about 219 KB from Google Fonts, 2026-10-11). Each file holds only the characters the page shows, so after changing ANY visible text (tagline, card title, footer) add it to `tools/subset-fonts.py`, run `python3 tools/subset-fonts.py`, and paste the printed `@font-face` rules over the block at the top of the `<style>` in `index.html`. A missing character silently falls back to a system font.
