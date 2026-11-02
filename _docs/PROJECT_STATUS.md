@@ -52,6 +52,7 @@ Append new rows. If a row stops being true, mark it superseded rather than delet
 | 2026-10-25 | Shoreline mounted at `/shoreline` (repo `shaunadigital/shoreline`, forwards to `https://shoreline-psi.vercel.app`). | Route went live first while the game was built. |
 | 2026-10-25 | Shoreline card added first with the "New" sticker (moved from TropiChop). Photo is Shauna's logo over her sunny lagoon background, a bright midday scene so it does not blend with TropiChop's sunset. Bulb tint teal `#2fd3c4` (TropiChop is orange). The "Still developing." teaser swapped out per the standing rule, kept in an HTML comment. `og.png` regenerated with all five cards. | New game. |
 | 2026-11-02 | Games moved to `shauna.digital/games/<game>/`. Card links made relative; `games.shauna.digital` redirects every path there (308). Shauna: keep this page for now. Every game, shauna.dev and the "More games" links point to `shauna.digital/games/`. | Shauna: the subdomain was hard to link to and type. |
+| 2026-11-02 | Credit is "Made by Shauna" linking to shauna.dev (footer here, and beside "More games" in every game). Every game has More games, Feedback and Made by Shauna on a menu. Shared in-game feedback panel `feedback.js` (Formspree, subject "Game feedback: <game>"); see README. | Shauna: the games credit her portfolio, not the business site; she wanted a way back to the games page everywhere and in-game feedback. Feedback stays in the main Formspree form (Shauna: fine as long as it works). |
 
 ## Queue
 
