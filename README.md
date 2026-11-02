@@ -55,3 +55,13 @@ Little browser games for late nights. This repository is the home page that ties
 ---
 
 Built with ♥ by [shauna.digital](https://shauna.digital)
+
+## Feedback panel (2026-11-02)
+
+`feedback.js` is one shared in-game feedback panel, served at `https://shauna.digital/games/feedback.js`. Every game loads it with `<script src="https://shauna.digital/games/feedback.js" defer></script>` and opens it from any element with a `data-feedback` attribute (or `GameFeedback.open({ ...details })` from code; Home Before Dark does this from its canvas pause menu).
+
+- Asks for a 1 to 5 face rating, "What should I fix or add?" and an optional email. Adds the game, page, screen size, touch or mouse, browser, and any details the game passes.
+- Sends to Formspree (`FORMSPREE` at the top of the file; today the shauna.digital form) with the subject "Game feedback: <game> (<rating>/5)", so each answer arrives by email and is easy to filter.
+- Lives in a shadow root, and stops key and pointer events from reaching the game while open.
+- Every game also has "More games" and "Made by Shauna" (shauna.dev) on its menu: TropiChop menu, Shoreline start screen and "?" panel, Saltwhisker title card and Tidebook, 13 Beads footer, Home Before Dark pause menu (F opens feedback).
+- New game: add the script tag and a Feedback link next to its "More games" link.
