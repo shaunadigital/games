@@ -1,14 +1,14 @@
 {
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "games.shauna.digital"
         }
       ],
-      "destination": "https://shauna.digital/games/:path*",
+      "destination": "https://shauna.digital/games/$1",
       "permanent": true
     },
     {
