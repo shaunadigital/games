@@ -16,7 +16,7 @@ Little browser games for late nights. This repository is the home page that ties
 
 ## How it is set up
 
-- **Since 2026-11-02 the public address is `shauna.digital/games/<game>/`** (Shauna: `games.shauna.digital` was hard to type; browsers often searched for it). The shauna.digital Netlify site shows each game straight from its own Vercel project (rules in that repo's `netlify.toml`), and `/games/` shows this page from `games-lac-rho.vercel.app`. `games.shauna.digital` now redirects every path to the same path under `shauna.digital/games/` (first rule in `vercel.json`). The rewrites below are kept but only matter if that redirect is removed. To add a game, also add its rule to shauna.digital's `netlify.toml`. Shauna may remove this Midnights page later and link to each game on its own.
+- **Since 2026-11-02 the public address is `shauna.digital/games/<game>/`** (Shauna: `games.shauna.digital` was hard to type; browsers often searched for it). The shauna.digital Netlify site shows each game straight from its own Vercel project (rules in that repo's `netlify.toml`), and `/games/` shows this page from `games-lac-rho.vercel.app`. `games.shauna.digital` now redirects every path to the same path under `shauna.digital/games/` (first rule in `vercel.json`). The rewrites below are kept but only matter if that redirect is removed. To add a game, also add its rule to shauna.digital's `netlify.toml`. Shauna decided to keep this page for now (2026-11-02).
 
 - This repository is a plain static site: `index.html` plus `vercel.json`. There is no build step and no framework.
 - Hosting: Vercel project `games` (team `shaunagits-projects`), deployed automatically from the `main` branch. Pushing to `main` updates the live site.
